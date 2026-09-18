@@ -7,9 +7,9 @@ const shareImage = new URL(productionImage, "https://id-preview--60f1774b-8fb8-4
 
 export const Route = createFileRoute("/clipzo")({
   head: () => ({ meta: [
-    { title: "Clipzo — Creative Content Production" },
+    { title: "Clipzo - Creative Content Production" },
     { name: "description", content: "Cinematic reels, videography, photography, and editing by Clipzo." },
-    { property: "og:title", content: "Clipzo — Creative Content Production" },
+    { property: "og:title", content: "Clipzo - Creative Content Production" },
     { property: "og:description", content: "Stories engineered for the scroll, from first frame to final grade." },
     { property: "og:url", content: "/clipzo" },
     { property: "og:image", content: shareImage }, { name: "twitter:image", content: shareImage },

@@ -1,6 +1,6 @@
 # Creative Worlds United
 
-IMPORTANT — LOGO-DRIVEN BRAND DESIGN
+IMPORTANT - LOGO-DRIVEN BRAND DESIGN
 
 I will provide the actual reference logos for:
 
@@ -174,7 +174,7 @@ Chatbot
 
 Hover interactions
 
-4. IMPORTANT — DO NOT USE PREVIOUSLY ASSIGNED COLOURS
+4. IMPORTANT - DO NOT USE PREVIOUSLY ASSIGNED COLOURS
 
 Ignore any previous instructions that specifically assigned:
 
@@ -523,7 +523,7 @@ Make the final result look professionally art-directed rather than automatically
 
 The uploaded logos are the final authority for the colour direction.
 
-Everything else — layout, typography, spacing, gradients, glow intensity, background treatment, buttons and interactions — should be selected to complement the actual logos.
+Everything else - layout, typography, spacing, gradients, glow intensity, background treatment, buttons and interactions - should be selected to complement the actual logos.
 
 This project was built with [Lovable](https://lovable.dev).
 
@@ -537,7 +537,7 @@ Continue developing this project in the [Lovable editor](https://lovable.dev/pro
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Prefer working locally? You need Node.js and npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
 git clone <this-repository-url>

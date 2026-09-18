@@ -6,9 +6,9 @@ const shareImage = new URL(academyImage, "https://id-preview--60f1774b-8fb8-4a6c
 
 export const Route = createFileRoute("/academy")({
   head: () => ({ meta: [
-    { title: "Clipzo Academy — Learn Creative Craft" },
+    { title: "Clipzo Academy - Learn Creative Craft" },
     { name: "description", content: "Practical multimedia courses in editing, camera craft, and direction." },
-    { property: "og:title", content: "Clipzo Academy — Learn Creative Craft" },
+    { property: "og:title", content: "Clipzo Academy - Learn Creative Craft" },
     { property: "og:description", content: "Learn, create, and master the craft behind every frame." },
     { property: "og:url", content: "/academy" },
     { property: "og:image", content: shareImage }, { name: "twitter:image", content: shareImage },

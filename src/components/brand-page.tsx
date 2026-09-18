@@ -233,7 +233,7 @@ function ClipzoHome({ youtubeReels = [] }: { youtubeReels?: YoutubeReel[] }) {
         <BrandLogo brand="clipzo" className="hero-brand-logo" />
         <p className="kicker">India’s reel making agency</p>
         <h1>Reels Shot, Edited<br />&amp; Delivered in <em>10 Minutes.</em></h1>
-        <p>Book pro creators, cinema-grade gear and viral trend formulas—for creators, brands and couples across India.</p>
+        <p>Book pro creators, cinema-grade gear and viral trend formulas-for creators, brands and couples across India.</p>
         <div className="hero-actions"><Button asChild variant="brand" size="lg"><a href="#enquiry">Book The Clipzo</a></Button><Button asChild variant="glass" size="lg"><a href="#discover">Explore <ArrowDown /></a></Button></div>
       </div>
       {/* <div className="clipzo-timeline" aria-label="Live production timeline"><p>Live production timeline</p><div>{[["00:00", "Book"], ["02:00", "Shoot"], ["05:00", "Edit"], ["08:00", "Trending audio"], ["10:00", "Delivered"]].map(([time, label]) => <span key={time}><b>{time}</b>{label}</span>)}</div></div> */}
@@ -266,7 +266,7 @@ function ClipzoHome({ youtubeReels = [] }: { youtubeReels?: YoutubeReel[] }) {
     </section>
 
     <section className="clipzo-section faq-section">
-      <div className="section-heading"><div><p className="kicker">Questions, answered</p><h2>Still curious?</h2></div><p>Ping us on WhatsApp—we usually reply in under two minutes.</p></div>
+      <div className="section-heading"><div><p className="kicker">Questions, answered</p><h2>Still curious?</h2></div><p>Ping us on WhatsApp-we usually reply in under two minutes.</p></div>
       <div className="faq-list">{[["How fast is delivery really?", "Most standard reels are delivered within 10 minutes of the shoot. Same-day delivery is available for selected event packages."], ["Do you travel to my location?", "Yes. Travel within 10 km of Mangaluru is complimentary. Shoots beyond this area and in other cities are quoted separately."], ["Can I request revisions?", "Two revisions are included. Additional revisions or major changes can be arranged at an extra charge."], ["What gear do you use?", "We use the latest iPhone series for reel making, with professional camera, lighting and editing options available for premium productions."], ["Is advance payment required?", "A 50% non-refundable advance confirms your booking. The remaining balance is due immediately after the shoot."]].map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
     </section>
 
@@ -351,7 +351,7 @@ function ClipzoPartnerPage() {
         <BrandLogo brand="clipzo" className="page-brand-logo" />
         <p className="kicker">Become a partner</p>
         <h1>Get paid gigs, <em>across India.</em></h1>
-        <p>Join our roster for weddings, brand campaigns and viral reels. Bring your craft—we’ll bring the next opportunity.</p>
+        <p>Join our roster for weddings, brand campaigns and viral reels. Bring your craft-we’ll bring the next opportunity.</p>
       </div>
     </section>
     <section className="partner-form-section">

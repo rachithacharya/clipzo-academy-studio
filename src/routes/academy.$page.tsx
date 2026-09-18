@@ -4,7 +4,7 @@ import { BrandPage, type BrandPageKey } from "@/components/brand-page";
 const validPages = ["about", "partner", "videos"] as const;
 
 export const Route = createFileRoute("/academy/$page")({
-  head: ({ params }) => ({ meta: [{ title: `Clipzo Academy — ${params.page}` }] }),
+  head: ({ params }) => ({ meta: [{ title: `Clipzo Academy - ${params.page}` }] }),
   component: AcademyPage,
 });
 

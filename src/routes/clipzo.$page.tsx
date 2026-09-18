@@ -5,7 +5,7 @@ import { fetchYoutubeReels } from "@/lib/youtube";
 const validPages = ["about", "partner", "videos", "reels"] as const;
 
 export const Route = createFileRoute("/clipzo/$page")({
-  head: ({ params }) => ({ meta: [{ title: `Clipzo — ${params.page}` }] }),
+  head: ({ params }) => ({ meta: [{ title: `Clipzo - ${params.page}` }] }),
   loader: async () => ({ youtubeReels: await fetchYoutubeReels() }),
   component: ClipzoPage,
 });

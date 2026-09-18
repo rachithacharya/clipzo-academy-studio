@@ -7,9 +7,9 @@ import { BrandLogo, Chatbot, LoadingMark, SiteFooter } from "@/components/site-s
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "Clipzo — One Brand. Three Creative Worlds." },
+    { title: "Clipzo - One Brand. Three Creative Worlds." },
     { name: "description", content: "Explore Clipzo content production, Clipzo Academy, and Clipzo Studio." },
-    { property: "og:title", content: "Clipzo — One Brand. Three Creative Worlds." },
+    { property: "og:title", content: "Clipzo - One Brand. Three Creative Worlds." },
     { property: "og:description", content: "Create, learn, and produce across three connected creative worlds." },
     { property: "og:url", content: "/" },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
