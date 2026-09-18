@@ -1,0 +1,148 @@
+{
+  "clipzo": {
+    "welcome": "Hi! I can answer questions about Clipzo, a mobile videography and cinematic reel production agency serving Mangaluru, Bengaluru, Kerala, and Vizag.",
+    "quickQuestions": [
+      "How fast is reel delivery?",
+      "What packages do you offer?",
+      "What is your office location?",
+      "What are your working hours?"
+    ],
+    "answers": [
+      {
+        "keywords": ["delivery", "fast", "how long", "minutes", "deliver"],
+        "question": "How fast is reel delivery?",
+        "answer": "Most standard reels are delivered within 10 minutes of the shoot. Same-day delivery is available for selected event packages."
+      },
+      {
+        "keywords": ["price", "pricing", "package", "cost", "basic", "high end", "hourly", "half day"],
+        "question": "What packages do you offer?",
+        "answer": "Clipzo packages are: Basic Reel Making hourly ₹1,999 (1 cinematic iPhone reel, 1-hour location shoot, under 60 seconds, same-day delivery on request); Basic Reel Making half-day ₹4,999 (event coverage, highlights reel under 90 seconds, same-day delivery on request, one complimentary story edit); High-end Reel Making hourly ₹3,499 (professional iPhone shoot, Premiere Pro and After Effects editing, under 60 seconds); and High-end Reel Making speed-ramp ₹4,999 (2-hour shoot, After Effects editing, under 60 seconds, one complimentary story edit). Extra shooting time is ₹500 per hour."
+      },
+      {
+        "keywords": ["travel", "location", "mangaluru", "mangalore", "bengaluru", "kerala", "vizag", "visakhapatnam", "city", "outside"],
+        "question": "Do you travel to my location?",
+        "answer": "Clipzo is a mobile videography and cinematic reel production agency operating across Mangaluru, Bengaluru, Kerala, and Vizag. Travel within 10 km of Mangaluru city is complimentary. Locations beyond 10 km have a ₹500 travel charge."
+      },
+      {
+        "keywords": ["office", "address", "where", "located", "location", "map", "hampankatta", "clock tower"],
+        "question": "What is your office location?",
+        "answer": "Clipzo operates from Shree Mangaladevi Palace, Clock Tower, Hampankatta, Mangaluru. The mobile production team operates across Mangaluru, Bengaluru, Kerala, and Vizag. Suggested message: Hi Clipzo, I would like to visit your Mangaluru office. Please share the best time to meet.",
+        "mapUrl": "https://www.google.com/maps?q=Shree+Mangaladevi+Palace+Clock+Tower+Hampankatta+Mangaluru&output=embed"
+      },
+      {
+        "keywords": ["hours", "timing", "time", "open", "working", "available", "monday", "saturday"],
+        "question": "What are your working hours?",
+        "answer": "Clipzo is available Monday to Saturday, 10:00 AM to 8:00 PM."
+      },
+      {
+        "keywords": ["phone", "call", "number", "contact", "email", "mail"],
+        "question": "How can I contact Clipzo?",
+        "answer": "Call or WhatsApp +91 95916 31027, or email clipzoindia@gmail.com."
+      },
+      {
+        "keywords": ["photography", "videography", "drone", "camera service", "traditional", "candid"],
+        "question": "What production services do you offer?",
+        "answer": "Clipzo offers Traditional Videography from ₹7,990, Candid Videography from ₹11,990, Traditional Photography from ₹7,990, Candid Photography from ₹11,990, and Drone Videography from ₹5,999."
+      },
+      {
+        "keywords": ["editing service", "premiere", "after effects", "colour grading", "cinematic highlight", "pc editing"],
+        "question": "What editing services do you offer?",
+        "answer": "High-end PC Editing Services start at ₹2,499 and include Premiere Pro or After Effects, a reel under 60 seconds, colour grading, transitions, motion graphics, and 1080p or 4K output. Cinematic Highlight Services start at ₹4,999 and include Premiere Pro and DaVinci Resolve, highlights under 5 minutes, colour grading, audio cleanup, and 1080p or 4K output."
+      },
+      {
+        "keywords": ["gear", "camera", "iphone", "equipment"],
+        "question": "What gear do you use?",
+        "answer": "Clipzo uses the latest iPhone series for reel making, with professional cameras, lighting, and editing options available for premium productions."
+      },
+      {
+        "keywords": ["revision", "revisions", "change", "edit again"],
+        "question": "Can I request revisions?",
+        "answer": "Two revisions are included. Additional revisions or major changes can be arranged at an extra charge."
+      },
+      {
+        "keywords": ["book", "booking", "advance", "payment", "reserve"],
+        "question": "How do I book Clipzo?",
+        "answer": "You can start by sending your project details through the enquiry form or contact Clipzo on WhatsApp. A 50% non-refundable advance confirms a booking, and the balance is due immediately after the shoot."
+      }
+    ]
+  },
+  "academy": {
+    "welcome": "Hi! I can answer questions about Clipzo Academy, learning areas, cohorts, and enrollment.",
+    "quickQuestions": [
+      "What can I learn at Academy?",
+      "How do I enroll?",
+      "What is the cohort format?",
+      "Where is Clipzo Academy?",
+      "What are the timings?"
+    ],
+    "answers": [
+      {
+        "keywords": ["learn", "course", "teach", "editing", "camera", "direction", "story", "portfolio", "mentor"],
+        "question": "What can I learn at Academy?",
+        "answer": "Clipzo Academy focuses on cinematic editing, camera craft, direction and story, and portfolio mentorship. Learning is guided by active filmmakers, editors, and visual storytellers."
+      },
+      {
+        "keywords": ["enroll", "enrollment", "join", "register", "admission", "form", "apply"],
+        "question": "How do I enroll?",
+        "answer": "Use the enrollment form in the Academy section of this website. Click Open Google Form, complete your details, and submit the form there."
+      },
+      {
+        "keywords": ["cohort", "week", "duration", "live", "practice", "class"],
+        "question": "What is the cohort format?",
+        "answer": "Academy offers 12-week cohorts with live studio practice and 1:1 mentor reviews."
+      },
+      {
+        "keywords": ["goal", "decision", "direction", "life", "creative journey"],
+        "question": "What is the Academy approach?",
+        "answer": "The Academy message is One Goal • One Decision • One Direction: choose your path, commit to your craft, and move with purpose."
+      },
+      {
+        "keywords": ["where", "location", "office", "address", "academy", "mangaluru", "mangalore"],
+        "question": "Where is Clipzo Academy?",
+        "answer": "Clipzo Academy is part of the Clipzo creative world operating from Mangaluru. The website lists the Clipzo location at Shree Mangaladevi Palace, Clock Tower, Hampankatta, Mangaluru."
+      },
+      {
+        "keywords": ["timing", "hours", "time", "class", "open", "monday", "saturday"],
+        "question": "What are the Academy timings?",
+        "answer": "The published Clipzo operating hours are Monday to Saturday, 10:00 AM to 8:00 PM. Specific Academy class schedules are shared with enrolled students or through the enrollment form."
+      }
+    ]
+  },
+  "studio": {
+    "welcome": "Hi! I can answer questions about Clipzo Studio and its production space.",
+    "quickQuestions": [
+      "What is Clipzo Studio?",
+      "Is the studio open yet?",
+      "What equipment will be available?",
+      "Where is the studio?",
+      "What are the studio timings?"
+    ],
+    "answers": [
+      {
+        "keywords": ["what", "studio", "space", "production", "soundstage"],
+        "question": "What is Clipzo Studio?",
+        "answer": "Clipzo Studio is a professional production space planned for commercial shoots, podcasts, and original productions."
+      },
+      {
+        "keywords": ["open", "launch", "available", "ready", "when", "book"],
+        "question": "Is the studio open yet?",
+        "answer": "Clipzo Studio is coming soon. The production floor, camera systems, lighting, and crew support are being prepared."
+      },
+      {
+        "keywords": ["equipment", "camera", "lighting", "sound", "cyclorama", "lens", "grip"],
+        "question": "What equipment will be available?",
+        "answer": "The planned studio capabilities include a cyclorama stage, camera and lenses, grip and lighting, and sound recording."
+      },
+      {
+        "keywords": ["where", "location", "office", "address", "studio", "mangaluru", "mangalore"],
+        "question": "Where is Clipzo Studio?",
+        "answer": "Clipzo Studio is being prepared as part of the Clipzo creative space in Mangaluru. The website lists the Clipzo location at Shree Mangaladevi Palace, Clock Tower, Hampankatta, Mangaluru."
+      },
+      {
+        "keywords": ["timing", "hours", "time", "open", "available", "when"],
+        "question": "What are the studio timings?",
+        "answer": "Clipzo Studio is coming soon, so studio-specific timings have not been published yet. Clipzo's general operating hours are Monday to Saturday, 10:00 AM to 8:00 PM."
+      }
+    ]
+  }
+}

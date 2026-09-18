@@ -1,0 +1,6 @@
+- [ ] Replace Clipzo and Academy with the supplied logo files
+- [ ] Smooth shared theme interpolation across all themed surfaces
+- [ ] Add complete per-page SEO and social sharing metadata
+- [ ] Add friendly client-side enquiry validation
+- [ ] Audit and fix contrast, focus visibility, and mobile targets
+- [ ] Verify all pages and forms on desktop and mobile
