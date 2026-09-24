@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, Clock3, Globe2, Instagram, Mail, MapPin, Phone, Play, Sparkles, X } from "lucide-react";
-import { useEffect, useRef, useState, type FormEvent, type PointerEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { brands, type BrandKey } from "@/lib/brands";
 import { BrandLogo, Enquiry, SiteFooter, SiteNav, ThemeFrame } from "@/components/site-shell";
@@ -297,11 +297,10 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
   const [sourceCards, setSourceCards] = useState(youtubeReels);
   const [isLoading, setIsLoading] = useState(youtubeReels.length === 0);
   const videoCards = [...sourceCards, ...sourceCards];
-    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
   const selectedVideo = selectedIndex === null ? null : videoCards[selectedIndex];
      const trackRef = useRef<HTMLDivElement | null>(null);
-  const dragState = useRef({ active: false, startX: 0, startScrollLeft: 0 });
 
     useEffect(() => {
       setSourceCards(youtubeReels);
@@ -334,28 +333,6 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
      function scrollReels(direction: 1 | -1) {
        trackRef.current?.scrollBy({ left: direction * 280, behavior: "smooth" });
      }
-
-    function startDragging(event: PointerEvent<HTMLDivElement>) {
-      const track = trackRef.current;
-      if (!track) return;
-      dragState.current = { active: true, startX: event.clientX, startScrollLeft: track.scrollLeft };
-      track.setPointerCapture(event.pointerId);
-      track.classList.add("is-dragging");
-    }
-
-    function dragReels(event: PointerEvent<HTMLDivElement>) {
-      const track = trackRef.current;
-      if (!track || !dragState.current.active) return;
-      track.scrollLeft = dragState.current.startScrollLeft - (event.clientX - dragState.current.startX);
-    }
-
-    function stopDragging(event: PointerEvent<HTMLDivElement>) {
-      const track = trackRef.current;
-      if (!track) return;
-      dragState.current.active = false;
-      if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
-      track.classList.remove("is-dragging");
-    }
 
   useEffect(() => {
     const track = trackRef.current;
@@ -390,7 +367,7 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
       <p>{fullPage ? "A moving archive of Clipzo production, learning, and studio stories." : "A glimpse of what we shoot, edit, and deliver for creators, brands, and celebrations."}</p>
     </div>
     {isLoading && <div className="reel-loading-state" aria-label="Loading Clipzo reels"><span /><span /><span /></div>}
-    {!isLoading && sourceCards.length > 0 && <div className="reel-track" ref={trackRef} aria-label="Clipzo reel showcase" onPointerDown={startDragging} onPointerMove={dragReels} onPointerUp={stopDragging} onPointerCancel={stopDragging}>
+    {!isLoading && sourceCards.length > 0 && <div className="reel-track" ref={trackRef} aria-label="Clipzo reel showcase">
       <div className="reel-track-motion">
         {videoCards.map((video, index) => <button className="reel-tile" type="button" onClick={() => setSelectedIndex(index)} key={`${video.id}-${index}`}>
           <img src={video.thumbnail} alt="" loading={index < 8 ? "eager" : "lazy"} decoding="async" onError={(event) => {
@@ -413,7 +390,7 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
       </div>
     </div>}
     {!isLoading && sourceCards.length === 0 && <div className="reel-empty-state"><p>New cinematic stories are coming soon.</p><a href={youtubeChannelUrl} target="_blank" rel="noreferrer">Watch Clipzo on YouTube <ArrowUpRight /></a></div>}
-      {!isLoading && sourceCards.length > 0 && <div className="reel-controls" aria-label="Scroll reels">
+       {!isLoading && sourceCards.length > 0 && <div className="reel-mobile-controls" aria-label="Scroll reels">
          <button type="button" onClick={() => scrollReels(-1)} aria-label="Scroll reels left"><ArrowLeft /></button>
          <button type="button" onClick={() => scrollReels(1)} aria-label="Scroll reels right"><ArrowRight /></button>
        </div>}
