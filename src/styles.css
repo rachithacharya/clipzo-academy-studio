@@ -141,14 +141,15 @@
 .reel-showcase-heading { max-width: 1380px; margin: 0 auto; padding: 0 max(5vw, 24px); display: grid; grid-template-columns: 1.4fr .6fr; gap: 40px; align-items: end; }
 .reel-showcase-heading h2 { margin: 16px 0 0; font-size: clamp(2.8rem, 5vw, 5rem); line-height: .98; font-weight: 400; }
 .reel-showcase-heading > p { color: var(--brand-muted); line-height: 1.7; }
-.reel-track { width: 100%; margin-top: 58px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x proximity; }
+.reel-track { width: 100%; margin-top: 58px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x proximity; cursor: grab; touch-action: pan-y; }
 .reel-track::-webkit-scrollbar { display: none; }
+.reel-track.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
 .reel-loading-state { max-width: 1380px; margin: 58px auto 0; display: grid; grid-template-columns: repeat(3, minmax(150px, 220px)); justify-content: center; gap: 18px; min-height: 390px; }
 .reel-loading-state span { min-height: 390px; border: 1px solid var(--brand-border); border-radius: 18px; background: linear-gradient(110deg, var(--brand-surface) 35%, var(--brand-surface-strong) 50%, var(--brand-surface) 65%); background-size: 220% 100%; animation: reelSkeleton 1.5s ease-in-out infinite; }
 .reel-loading-state span:nth-child(2) { transform: translateY(-18px); }
 @keyframes reelSkeleton { from { background-position: 200% 0; } to { background-position: -20% 0; } }
 .reel-track-motion { --reel-gap: 18px; display: flex; width: max-content; gap: var(--reel-gap); padding-inline: 5vw; }
-.reel-controls { display: flex; justify-content: flex-end; gap: 8px; margin: 18px max(5vw, 24px) 0; }
+.reel-controls { display: none; justify-content: flex-end; gap: 8px; margin: 18px max(5vw, 24px) 0; }
 .reel-controls button { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--brand-border); border-radius: 50%; background: var(--brand-surface-strong); color: var(--brand-text); cursor: pointer; }
 .reel-controls button:hover, .reel-controls button:focus-visible { border-color: var(--brand-accent); color: var(--brand-accent); }
 .reel-controls button svg { width: 18px; }
@@ -483,6 +484,7 @@
   .reel-track-motion { --reel-gap: 12px; gap: var(--reel-gap); padding-inline: 22px; }
   .reel-tile { scroll-snap-align: start; }
   .reel-controls { margin-inline: 22px; }
+  .reel-controls { display: flex; }
   .reel-tile { flex-basis: min(68vw, 260px); border-radius: 16px; }
   .reel-tile:nth-child(5n + 3) { transform: translateY(0) rotate(0) scale(1); }
   .reel-showcase-action { margin-top: 38px; }
