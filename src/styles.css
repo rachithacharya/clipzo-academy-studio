@@ -477,7 +477,7 @@
   .reel-loading-state span { min-height: 290px; }
   .reel-loading-state span:nth-child(3) { display: none; }
   .reel-showcase-heading { grid-template-columns: 1fr; gap: 18px; padding-inline: 22px; }
-  .reel-showcase-heading h2 { font-size: clamp(2.8rem, 13vw, 4.5rem); }
+  .reel-showcase-heading h2 { max-width: 100%; font-size: clamp(2.55rem, 12.5vw, 4.2rem); line-height: 1.04; letter-spacing: 0; }
   .reel-track { margin-top: 38px; padding-bottom: 8px; overflow-x: auto; scrollbar-width: none; }
   .reel-track::-webkit-scrollbar { display: none; }
   .reel-track-motion { --reel-gap: 12px; gap: var(--reel-gap); padding-inline: 22px; width: max-content; animation: reelMarquee 20s linear infinite; }
@@ -556,7 +556,7 @@
 @media (max-width: 480px) {
   .brand-hero, .clipzo-hero, .page-hero, .home-hero { padding-left: 18px; padding-right: 18px; }
   .brand-hero h1, .clipzo-hero-copy h1, .page-hero h1, .home-hero h1 { letter-spacing: -0.04em; }
-  .reel-showcase-heading h2, .section-heading h2, .clipzo-contact h2, .academy-enrolment-copy h2, .coming-soon-panel h2 { letter-spacing: -0.04em; }
+  .reel-showcase-heading h2, .section-heading h2, .clipzo-contact h2, .academy-enrolment-copy h2, .coming-soon-panel h2 { letter-spacing: 0; line-height: 1.04; }
   .mobile-nav a { font-size: 13px; }
   .site-nav .brand-logo { width: 86px; height: 30px; }
   .hero-actions, .academy-enrolment-actions { gap: 10px; }
