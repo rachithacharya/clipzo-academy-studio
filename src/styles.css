@@ -481,7 +481,7 @@
   .reel-track { margin-top: 38px; padding-bottom: 8px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; }
   .reel-track::-webkit-scrollbar { display: none; }
   .reel-track-motion { --reel-gap: 12px; gap: var(--reel-gap); padding-inline: 22px; animation-duration: 14s; }
-  .reel-track-motion { width: max-content; animation: none; }
+  .reel-track-motion { width: max-content; animation: reelMarquee 28s linear infinite; }
   .reel-tile { scroll-snap-align: start; }
   .reel-mobile-controls { display: flex; justify-content: flex-end; gap: 8px; margin: 18px 22px 0; }
   .reel-tile { flex-basis: min(68vw, 260px); border-radius: 16px; }

@@ -372,16 +372,20 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
         {videoCards.map((video, index) => <button className="reel-tile" type="button" onClick={() => setSelectedIndex(index)} key={`${video.id}-${index}`}>
           <img src={video.thumbnail} alt="" loading={index < 8 ? "eager" : "lazy"} decoding="async" onError={(event) => {
             const image = event.currentTarget;
-            if (image.dataset["thumbnailFallback"] === "frame") return;
-            image.dataset["thumbnailFallback"] = image.dataset["thumbnailFallback"] === "hq720" ? "frame" : "hq720";
-            image.src = image.dataset["thumbnailFallback"] === "hq720"
-              ? `https://i.ytimg.com/vi/${video.id}/hq720.jpg`
-              : `https://i.ytimg.com/vi/${video.id}/0.jpg`;
+            const fallbackIndex = Number(image.dataset["thumbnailFallback"] ?? "0") + 1;
+            const fallbacks = [
+              `https://i.ytimg.com/vi/${video.id}/0.jpg`,
+              `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
+              `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`,
+            ];
+            if (fallbackIndex >= fallbacks.length) return;
+            image.dataset["thumbnailFallback"] = String(fallbackIndex);
+            image.src = fallbacks[fallbackIndex];
           }} onLoad={(event) => {
             const image = event.currentTarget;
-            if (image.dataset["thumbnailFallback"] || image.naturalWidth >= 800) return;
-            image.dataset["thumbnailFallback"] = "hq720";
-            image.src = `https://i.ytimg.com/vi/${video.id}/hq720.jpg`;
+            if (image.dataset["thumbnailFallback"] || image.naturalWidth > 120) return;
+            image.dataset["thumbnailFallback"] = "1";
+            image.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`;
           }} />
           <span className="reel-tile-shade" />
           <span className="reel-tile-play"><Play fill="currentColor" /></span>

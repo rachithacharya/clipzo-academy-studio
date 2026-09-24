@@ -51,7 +51,7 @@ async function fetchYoutubeRss(channelId: string): Promise<YoutubeReel[]> {
       title,
       description: readXmlTag(entry, "media:description") ?? "",
       publishedAt: readXmlTag(entry, "published") ?? "",
-      thumbnail: `https://i.ytimg.com/vi/${id}/hq720.jpg`,
+      thumbnail: `https://i.ytimg.com/vi/${id}/0.jpg`,
       youtubeUrl: `https://www.youtube.com/watch?v=${id}`,
     }];
   }).slice(0, maxVideos);
