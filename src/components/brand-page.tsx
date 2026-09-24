@@ -246,6 +246,18 @@ function BrandContactSection({ brand }: { brand: BrandKey }) {
 
 export type YoutubeReel = { id: string; title: string; description: string; publishedAt: string; thumbnail: string; youtubeUrl: string };
 
+type ReelCategory = "All" | "Weddings" | "Decor" | "Cars" | "Academy" | "Events" | "Creators";
+
+function getReelCategory(reel: YoutubeReel): Exclude<ReelCategory, "All"> {
+  const text = `${reel.title} ${reel.description}`.toLowerCase();
+  if (/wedding|bride|bridal|groom|haldi|mehndi|marriage/.test(text)) return "Weddings";
+  if (/decor|decoration|moulding|mandap|stage|floral/.test(text)) return "Decor";
+  if (/car|defender|automobile|vehicle|bike|speed ramp/.test(text)) return "Cars";
+  if (/after effects|premiere|editing|edit|academy|tutorial|learn/.test(text)) return "Academy";
+  if (/event|pooja|griha|temple|celebration|festival|bts/.test(text)) return "Events";
+  return "Creators";
+}
+
 const reelFeatures = [
   ["Pro Shooting", "Cinematic shots by trained reel specialists on location."],
   ["Instant Editing", "Trending cuts, transitions and captions edited in minutes."],
@@ -296,7 +308,9 @@ const workflow = ["Book", "Shoot", "Edit", "Review", "Deliver"];
 function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean; youtubeReels?: YoutubeReel[] }) {
   const [sourceCards, setSourceCards] = useState(youtubeReels);
   const [isLoading, setIsLoading] = useState(youtubeReels.length === 0);
-  const videoCards = [...sourceCards, ...sourceCards];
+  const [activeCategory, setActiveCategory] = useState<ReelCategory>("All");
+  const filteredCards = activeCategory === "All" ? sourceCards : sourceCards.filter((reel) => getReelCategory(reel) === activeCategory);
+  const videoCards = [...filteredCards, ...filteredCards];
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
   const selectedVideo = selectedIndex === null ? null : videoCards[selectedIndex];
@@ -304,6 +318,7 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
 
     useEffect(() => {
       setSourceCards(youtubeReels);
+      setActiveCategory("All");
       setIsLoading(youtubeReels.length === 0);
     }, [youtubeReels]);
 
@@ -328,6 +343,15 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
 
   function movePreview(direction: 1 | -1) {
     setSelectedIndex(index => index === null ? null : (index + direction + videoCards.length) % videoCards.length);
+  }
+
+  const availableCategories = (["Weddings", "Decor", "Cars", "Academy", "Events", "Creators"] as const)
+    .filter((category) => sourceCards.some((reel) => getReelCategory(reel) === category));
+
+  function selectCategory(category: ReelCategory) {
+    setActiveCategory(category);
+    setSelectedIndex(null);
+    trackRef.current?.scrollTo({ left: 0, behavior: "smooth" });
   }
    
      function scrollReels(direction: 1 | -1) {
@@ -366,8 +390,11 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
       <div><p className="kicker">Portfolio</p><h2>{fullPage ? "Watch the work." : "Reels that keep moving."}</h2></div>
       <p>{fullPage ? "A moving archive of Clipzo production, learning, and studio stories." : "A glimpse of what we shoot, edit, and deliver for creators, brands, and celebrations."}</p>
     </div>
+    {!isLoading && sourceCards.length > 0 && <div className="reel-category-filters" aria-label="Filter reels by category">
+      {(["All", ...availableCategories] as ReelCategory[]).map((category) => <button key={category} type="button" className={activeCategory === category ? "is-active" : undefined} aria-pressed={activeCategory === category} onClick={() => selectCategory(category)}>{category}</button>)}
+    </div>}
     {isLoading && <div className="reel-loading-state" aria-label="Loading Clipzo reels"><span /><span /><span /></div>}
-    {!isLoading && sourceCards.length > 0 && <div className="reel-track" ref={trackRef} aria-label="Clipzo reel showcase">
+    {!isLoading && filteredCards.length > 0 && <div className="reel-track" ref={trackRef} aria-label={`${activeCategory} Clipzo reels`}>
       <div className="reel-track-motion">
         {videoCards.map((video, index) => <button className="reel-tile" type="button" onClick={() => setSelectedIndex(index)} key={`${video.id}-${index}`}>
           <img src={video.thumbnail} alt="" loading={index < 8 ? "eager" : "lazy"} decoding="async" onError={(event) => {
@@ -393,8 +420,8 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
         </button>)}
       </div>
     </div>}
-    {!isLoading && sourceCards.length === 0 && <div className="reel-empty-state"><p>New cinematic stories are coming soon.</p><a href={youtubeChannelUrl} target="_blank" rel="noreferrer">Watch Clipzo on YouTube <ArrowUpRight /></a></div>}
-       {!isLoading && sourceCards.length > 0 && <div className="reel-mobile-controls" aria-label="Scroll reels">
+     {!isLoading && filteredCards.length === 0 && <div className="reel-empty-state"><p>No reels in this category yet.</p><button type="button" onClick={() => selectCategory("All")}>Show all reels</button></div>}
+       {!isLoading && filteredCards.length > 0 && <div className="reel-mobile-controls" aria-label="Scroll reels">
          <button type="button" onClick={() => scrollReels(-1)} aria-label="Scroll reels left"><ArrowLeft /></button>
          <button type="button" onClick={() => scrollReels(1)} aria-label="Scroll reels right"><ArrowRight /></button>
        </div>}

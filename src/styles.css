@@ -141,6 +141,10 @@
 .reel-showcase-heading { max-width: 1380px; margin: 0 auto; padding: 0 max(5vw, 24px); display: grid; grid-template-columns: 1.4fr .6fr; gap: 40px; align-items: end; }
 .reel-showcase-heading h2 { margin: 16px 0 0; font-size: clamp(2.8rem, 5vw, 5rem); line-height: .98; font-weight: 400; }
 .reel-showcase-heading > p { color: var(--brand-muted); line-height: 1.7; }
+.reel-category-filters { max-width: 1380px; margin: 34px auto 0; padding: 0 max(5vw, 24px); display: flex; flex-wrap: wrap; gap: 8px; }
+.reel-category-filters button { min-height: 38px; padding: 8px 16px; border: 1px solid var(--brand-border); border-radius: 999px; background: var(--brand-surface); color: var(--brand-muted); cursor: pointer; font: inherit; font-size: 12px; font-weight: 600; transition: border-color .2s ease, background-color .2s ease, color .2s ease, transform .2s ease; }
+.reel-category-filters button:hover, .reel-category-filters button:focus-visible { border-color: var(--brand-accent); color: var(--brand-text); transform: translateY(-1px); outline: none; }
+.reel-category-filters button.is-active { border-color: var(--brand-primary); background: var(--brand-primary); color: var(--brand-on-primary); }
 .reel-track { width: 100%; margin-top: 58px; overflow: hidden; }
 .reel-loading-state { max-width: 1380px; margin: 58px auto 0; display: grid; grid-template-columns: repeat(3, minmax(150px, 220px)); justify-content: center; gap: 18px; min-height: 390px; }
 .reel-loading-state span { min-height: 390px; border: 1px solid var(--brand-border); border-radius: 18px; background: linear-gradient(110deg, var(--brand-surface) 35%, var(--brand-surface-strong) 50%, var(--brand-surface) 65%); background-size: 220% 100%; animation: reelSkeleton 1.5s ease-in-out infinite; }
@@ -155,6 +159,7 @@
 .reel-empty-state p { margin: 0 0 10px; }
 .reel-empty-state a { display: inline-flex; align-items: center; gap: 6px; color: var(--brand-accent); font-weight: 600; }
 .reel-empty-state a svg { width: 14px; }
+.reel-empty-state button { padding: 0; border: 0; background: none; color: var(--brand-accent); cursor: pointer; font: inherit; font-weight: 600; }
 .reel-tile { position: relative; flex: 0 0 clamp(220px, 19vw, 310px); aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid color-mix(in oklab, var(--brand-border) 86%, transparent); border-radius: 22px; isolation: isolate; color: var(--brand-text); opacity: .45; box-shadow: 0 22px 55px color-mix(in oklab, black 45%, transparent); transform: translateY(24px) rotate(var(--tile-angle, 0deg)) scale(.94); transition: opacity .7s ease, transform .8s cubic-bezier(.22, 1, .36, 1), border-color .35s ease, box-shadow .35s ease; }
 .reel-tile.is-visible { opacity: 1; transform: translateY(0) rotate(var(--tile-angle, 0deg)) scale(1); }
 .reel-tile { padding: 0; text-align: left; background: var(--brand-background); cursor: pointer; }
@@ -478,6 +483,9 @@
   .reel-loading-state span:nth-child(3) { display: none; }
   .reel-showcase-heading { grid-template-columns: 1fr; gap: 18px; padding-inline: 22px; }
   .reel-showcase-heading h2 { max-width: 100%; font-size: clamp(2.55rem, 12.5vw, 4.2rem); line-height: 1.04; letter-spacing: 0; }
+  .reel-category-filters { margin-top: 28px; padding-inline: 22px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .reel-category-filters::-webkit-scrollbar { display: none; }
+  .reel-category-filters button { flex: 0 0 auto; min-height: 36px; padding-inline: 14px; }
   .reel-track { margin-top: 38px; padding-bottom: 8px; overflow-x: auto; scrollbar-width: none; }
   .reel-track::-webkit-scrollbar { display: none; }
   .reel-track-motion { --reel-gap: 12px; gap: var(--reel-gap); padding-inline: 22px; width: max-content; animation: reelMarquee 20s linear infinite; }
