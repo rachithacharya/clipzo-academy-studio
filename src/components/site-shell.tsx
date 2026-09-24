@@ -7,6 +7,21 @@ import chatbotKnowledge from "@/data/chatbot-knowledge.json";
 import { brands, type BrandKey } from "@/lib/brands";
 
 const whatsappUrl = "https://wa.me/919591631027?text=Hi%20Clipzo%2C%20I%27d%20like%20to%20start%20a%20conversation";
+const academyStudioWhatsappUrl = "https://wa.me/919019348392?text=Hi%20Clipzo%2C%20I%27d%20like%20to%20start%20a%20conversation";
+const chatbotStopWords = new Set(["a", "about", "an", "and", "are", "can", "does", "do", "for", "how", "i", "is", "it", "me", "my", "of", "please", "the", "to", "what", "when", "where", "which", "who", "with", "you", "your"]);
+
+function getBrandWhatsappUrl(brand: BrandKey, text: string) {
+  const phoneNumber = brand === "clipzo" ? "919591631027" : "919019348392";
+  return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+}
+
+function normalizeChatbotText(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9₹]+/g, " ").trim().replace(/\s+/g, " ");
+}
+
+function chatbotContentWords(value: string) {
+  return normalizeChatbotText(value).split(" ").filter(word => word.length > 2 && !chatbotStopWords.has(word));
+}
 
 export function BrandLogo({ brand, className = "" }: { brand: BrandKey; className?: string }) {
   const item = brands[brand];
@@ -25,7 +40,7 @@ export function SiteNav({ active = "clipzo" }: { active?: BrandKey }) {
         <Link to="/academy" activeProps={{ className: "is-active" }}>Academy</Link>
         <Link to="/studio" activeProps={{ className: "is-active" }}>Studio</Link>
       </nav>
-      <Button asChild variant="brand" size="lg" className="nav-cta"><a href={whatsappUrl}>Start a conversation</a></Button>
+      <Button asChild variant="brand" size="lg" className="nav-cta"><a href={whatsappUrl}>Let’s Create</a></Button>
       <Button variant="glass" size="icon" className="menu-toggle" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
       {open && <nav className="mobile-nav" aria-label="Mobile creative worlds">
         <Link to="/clipzo" onClick={() => setOpen(false)}>Clipzo</Link>
@@ -73,15 +88,32 @@ export function Chatbot({ brand }: { brand: BrandKey }) {
   }, [messages, open]);
 
   function findAnswer(question: string) {
-    const normalizedQuestion = question.toLowerCase().replace(/[^a-z0-9₹]+/g, " ");
-    const words = normalizedQuestion.split(" ").filter(word => word.length > 2);
+    const normalizedQuestion = normalizeChatbotText(question);
+    const words = chatbotContentWords(question);
     const answers = chatbotKnowledge[brand].answers;
-    const bestMatch = answers
-      .map((entry) => ({ entry, score: entry.keywords.reduce((score, keyword) => score + (normalizedQuestion.includes(keyword.toLowerCase()) ? 1 : 0), 0) }))
-      .sort((left, right) => right.score - left.score)[0];
 
-    if (bestMatch && bestMatch.score > 0) return { text: bestMatch.entry.answer, mapUrl: "mapUrl" in bestMatch.entry ? bestMatch.entry.mapUrl : undefined };
+    const rankedMatches = answers.map((entry) => {
+      const normalizedEntryQuestion = normalizeChatbotText(entry.question);
+      const entryWords = chatbotContentWords(entry.question);
+      const matchingQuestionWords = words.filter(word => entryWords.includes(word)).length;
+      let score = normalizedQuestion === normalizedEntryQuestion ? 100 : 0;
+      if (normalizedQuestion.includes(normalizedEntryQuestion) || normalizedEntryQuestion.includes(normalizedQuestion)) score += 30;
+      score += entry.keywords.reduce((keywordScore, keyword) => {
+        const normalizedKeyword = normalizeChatbotText(keyword);
+        if (!normalizedKeyword || !normalizedQuestion.includes(normalizedKeyword)) return keywordScore;
+        const keywordWords = normalizedKeyword.split(" ");
+        return keywordScore + (keywordWords.length > 1 ? 8 + keywordWords.length : 1);
+      }, 0);
+      score += entryWords.length > 0 ? (matchingQuestionWords / entryWords.length) * 6 : 0;
+      return { entry, score };
+    }).sort((left, right) => right.score - left.score);
+
+    const bestMatch = rankedMatches[0];
+    const secondMatch = rankedMatches[1];
+    const hasReliableMatch = bestMatch && bestMatch.score > 0 && (!secondMatch || bestMatch.score - secondMatch.score >= 2 || bestMatch.score >= 30);
+    if (hasReliableMatch) return { text: bestMatch.entry.answer, mapUrl: "mapUrl" in bestMatch.entry ? bestMatch.entry.mapUrl : undefined };
     if (words.some(word => ["hello", "hi", "hey"].includes(word))) return { text: chatbotKnowledge[brand].welcome };
+    if (bestMatch && secondMatch && bestMatch.score > 0) return { text: `I found more than one possible answer. Could you be more specific, for example: “${bestMatch.entry.question}” or “${secondMatch.entry.question}”?` };
     return { text: `I can answer questions about ${botLabels[brand]} using the information on this website. I don't have a verified answer for that yet. Please send us a WhatsApp message for help.` };
   }
 
@@ -109,7 +141,7 @@ export function Chatbot({ brand }: { brand: BrandKey }) {
       <div className="chat-head"><BrandLogo brand={brand} /><Button variant="ghost" size="icon" onClick={() => setOpen(false)} aria-label="Close chat"><X /></Button></div>
       <div className="chat-messages" aria-live="polite">{messages.map((message, index) => message.role === "bot" ? <div key={`${message.role}-${index}`} className="chat-message chat-message-bot"><ul>{answerPoints(message.text).map((point, pointIndex) => <li key={`${point}-${pointIndex}`}>{point}</li>)}</ul>{message.mapUrl && <div className="chat-map-wrap"><iframe src={message.mapUrl} title="Clipzo office location map" loading="lazy" /><a href="https://www.google.com/maps/search/?api=1&query=Shree+Mangaladevi+Palace+Clock+Tower+Hampankatta+Mangaluru" target="_blank" rel="noreferrer">Open in Google Maps <ArrowUpRight /></a></div>}</div> : <p key={`${message.role}-${index}`} className="chat-message chat-message-user">{message.text}</p>)}<div ref={latestMessageRef} aria-hidden="true" /></div>
       <div className="chat-quick-questions"><span>Quick asks</span>{chatbotKnowledge[brand].quickQuestions.map(question => <button key={question} type="button" onClick={() => askQuickQuestion(question)}>{question}</button>)}</div>
-      <a className="chat-whatsapp" href={`${whatsappUrl}&brand=${brand}`} target="_blank" rel="noreferrer">Ask on WhatsApp <ArrowUpRight /></a>
+      <a className="chat-whatsapp" href={getBrandWhatsappUrl(brand, `Hi ${brands[brand].name}, I would like to ask a question.`)} target="_blank" rel="noreferrer">Ask on WhatsApp <ArrowUpRight /></a>
       <form className="chat-input" onSubmit={submitQuestion}><input value={draft} onChange={(event) => setDraft(event.target.value)} aria-label={`${brands[brand].name} chat message`} placeholder="Ask a question..." /><Button type="submit" variant="brand" size="icon" aria-label="Send message"><Send /></Button></form>
     </div>}
     <div className="chat-bot-list" aria-label={`${brands[brand].name} assistant`}>
@@ -148,14 +180,15 @@ export function Enquiry({ brand }: { brand: BrandKey }) {
       return;
     }
     setErrors({});
-    if (brand === "academy") {
-      const message = [
-        "Hi Clipzo Academy,",
-        `Name: ${result.data.name}`,
-        `Email: ${result.data.email}`,
-        `Enquiry: ${result.data.project}`,
-      ].join("\n");
-      window.open(`https://wa.me/919591631027?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    const message = [
+      `Hi ${brands[brand].name},`,
+      `Name: ${result.data.name}`,
+      `Email: ${result.data.email}`,
+      `Enquiry: ${result.data.project}`,
+    ].join("\n");
+    const whatsappLink = getBrandWhatsappUrl(brand, message);
+    if (brand === "academy" || brand === "studio" || brand === "clipzo") {
+      window.open(whatsappLink, "_blank", "noopener,noreferrer");
     }
     setSent(true);
   }
@@ -170,8 +203,19 @@ export function Enquiry({ brand }: { brand: BrandKey }) {
   </section>;
 }
 
-export function SiteFooter() {
-  return <footer className="site-footer"><span>Clipzo · Academy · Studio</span><span>One brand. Three creative worlds.</span><span className="footer-links"><a href="#terms">Terms</a><a href="#privacy">Privacy</a></span><span>© 2026 Clipzo</span><span>Developed and designed by <a href="https://rachithAcharyaa.in" target="_blank" rel="noreferrer">Rachitha R Acharya</a></span></footer>;
+export function SiteFooter({ brand = "clipzo" }: { brand?: BrandKey }) {
+  const brandLabel = brand === "academy" ? "Clipzo · Academy · Studio" : brand === "studio" ? "Clipzo · Academy · Studio" : "Clipzo · Academy · Studio";
+  const brandCredit = brand === "academy" ? "© 2026 Clipzo Academy" : brand === "studio" ? "© 2026 Clipzo Studio" : "© 2026 Clipzo";
+
+  const brandPageLink = brand === "academy" ? "https://www.clipzo.in/academy" : brand === "studio" ? "https://www.clipzo.in/studio" : "https://www.clipzo.in";
+
+  return <footer className="site-footer">
+    <div className="site-footer__brand"><a href={brandPageLink} target="_blank" rel="noreferrer"><span>{brandLabel}</span></a></div>
+    <div className="site-footer__tagline"><span>One brand. Three creative worlds.</span></div>
+    <div className="site-footer__links"><span className="footer-links"><a href="#terms">Terms</a><a href="#privacy">Privacy</a></span></div>
+    <div className="site-footer__credit"><span>{brandCredit}</span></div>
+    <div className="site-footer__dev"><span>Developed and designed by <a href="https://rachithacharya.in" target="_blank" rel="noreferrer">Rachitha R Acharya</a></span></div>
+  </footer>;
 }
 
 export function ThemeFrame({ brand, children }: { brand: BrandKey; children: ReactNode }) {

@@ -9,19 +9,59 @@
     ],
     "answers": [
       {
-        "keywords": ["delivery", "fast", "how long", "minutes", "deliver"],
+        "keywords": ["delivery", "fast", "how long", "minutes", "deliver", "reel delivery", "delivery time", "same day", "same-day"],
         "question": "How fast is reel delivery?",
-        "answer": "Most standard reels are delivered within 10 minutes of the shoot. Same-day delivery is available for selected event packages."
+        "answer": "Same-day delivery is available on request for applicable Reel Making packages. Delivery timing depends on the selected package and production requirements."
       },
       {
-        "keywords": ["price", "pricing", "package", "cost", "basic", "high end", "hourly", "half day"],
+        "keywords": ["price", "pricing", "package", "cost", "basic", "high end", "high-end", "hourly", "half day", "plans", "reel packages"],
         "question": "What packages do you offer?",
-        "answer": "Clipzo packages are: Basic Reel Making hourly ₹1,999 (1 cinematic iPhone reel, 1-hour location shoot, under 60 seconds, same-day delivery on request); Basic Reel Making half-day ₹4,999 (event coverage, highlights reel under 90 seconds, same-day delivery on request, one complimentary story edit); High-end Reel Making hourly ₹3,499 (professional iPhone shoot, Premiere Pro and After Effects editing, under 60 seconds); and High-end Reel Making speed-ramp ₹4,999 (2-hour shoot, After Effects editing, under 60 seconds, one complimentary story edit). Extra shooting time is ₹500 per hour."
+        "answer": "Clipzo Reel Making packages are: Basic Reel Making Hourly ₹1,999 (1 cinematic reel shot on the latest iPhone series, 1-hour shoot on location, extra time charged at ₹500 per hour, reel duration under 60 seconds, same-day delivery available on request); Basic Reel Making Half-day ₹4,999 (1 cinematic highlights reel shot on the latest iPhone series, whole event coverage, reel duration under 90 seconds, same-day delivery available on request, one complimentary story edit); High-end Reel Making Hourly ₹3,499 (1 cinematic reel shot on the latest iPhone series, 1-hour shoot on location, extra time charged at ₹500 per hour, high-end PC editing with Premiere Pro and After Effects, reel duration under 60 seconds); and High-end Reel Making Speed Ramp ₹4,999 (1 cinematic reel shot on the latest iPhone series, 2-hour shoot on location, extra time charged at ₹500 per hour, high-end After Effects editing, reel duration under 60 seconds, one complimentary story edit)."
       },
       {
-        "keywords": ["travel", "location", "mangaluru", "mangalore", "bengaluru", "kerala", "vizag", "visakhapatnam", "city", "outside"],
+        "keywords": ["basic reel", "basic hourly", "basic hourly plan", "basic reel making", "1999", "₹1,999", "1,999"],
+        "question": "What is the Basic Reel Making hourly plan?",
+        "answer": "The Basic Reel Making Hourly Plan costs ₹1,999. It includes 1 cinematic reel shot on the latest iPhone series, 1 hour of shooting on location, extra time charged at ₹500 per hour, a reel duration under 60 seconds, and same-day delivery available on request."
+      },
+      {
+        "keywords": ["basic half day", "basic half-day", "half day plan", "half-day plan", "4999", "₹4,999", "4,999"],
+        "question": "What is the Basic Reel Making half-day plan?",
+        "answer": "The Basic Reel Making Half-day Plan costs ₹4,999. It includes 1 cinematic highlights reel shot on the latest iPhone series, whole event coverage, a reel duration under 90 seconds, same-day delivery available on request, and one complimentary story edit."
+      },
+      {
+        "keywords": ["high end reel", "high-end reel", "high end hourly", "high-end hourly", "3499", "₹3,499", "3,499"],
+        "question": "What is the High-end Reel Making hourly plan?",
+        "answer": "The High-end Reel Making Hourly Plan costs ₹3,499. It includes 1 cinematic reel shot on the latest iPhone series, 1 hour of shooting on location, extra time charged at ₹500 per hour, high-end PC editing with Premiere Pro and After Effects, and a reel duration under 60 seconds."
+      },
+      {
+        "keywords": ["speed ramp", "speed-ramp", "speed ramp plan", "high end speed ramp", "high-end speed ramp", "4999", "₹4,999"],
+        "question": "What is the High-end Reel Making Speed Ramp plan?",
+        "answer": "The High-end Reel Making Speed Ramp Plan costs ₹4,999. It includes 1 cinematic reel shot on the latest iPhone series, 2 hours of shooting on location, extra time charged at ₹500 per hour, high-end After Effects editing, a reel duration under 60 seconds, and one complimentary story edit."
+      },
+      {
+        "keywords": ["extra time", "extra hour", "additional hour", "overtime", "additional shooting", "500 per hour", "₹500"],
+        "question": "How much is extra shooting time?",
+        "answer": "Extra shooting time is charged at ₹500 per hour."
+      },
+      {
+        "keywords": ["travel", "travel charge", "travel fee", "location", "mangaluru", "mangalore", "bengaluru", "bangalore", "kerala", "vizag", "visakhapatnam", "city", "outside"],
         "question": "Do you travel to my location?",
-        "answer": "Clipzo is a mobile videography and cinematic reel production agency operating across Mangaluru, Bengaluru, Kerala, and Vizag. Travel within 10 km of Mangaluru city is complimentary. Locations beyond 10 km have a ₹500 travel charge."
+        "answer": "Clipzo is a mobile videography and cinematic reel production agency operating across Mangaluru, Bengaluru, Kerala, and Vizag. Travel within a 10 km radius of Mangaluru city is complimentary. Locations beyond 10 km are subject to a ₹500 travel charge. This policy applies only to shoots based in Mangaluru. Shoots in other cities or states are quoted separately."
+      },
+      {
+        "keywords": ["10 km", "within 10 km", "free travel", "complimentary travel"],
+        "question": "Is travel within 10 km of Mangaluru free?",
+        "answer": "Yes. Travel within a 10 km radius of Mangaluru city is complimentary."
+      },
+      {
+        "keywords": ["outside 10 km", "beyond 10 km", "more than 10 km", "over 10 km"],
+        "question": "What is the travel charge beyond 10 km?",
+        "answer": "Locations beyond 10 km from Mangaluru city are subject to a ₹500 travel charge."
+      },
+      {
+        "keywords": ["other city", "other cities", "other state", "other states", "outside mangaluru"],
+        "question": "What about shoots outside Mangaluru?",
+        "answer": "Shoots in other cities or states are quoted separately."
       },
       {
         "keywords": ["office", "address", "where", "located", "location", "map", "hampankatta", "clock tower"],
@@ -35,19 +75,54 @@
         "answer": "Clipzo is available Monday to Saturday, 10:00 AM to 8:00 PM."
       },
       {
-        "keywords": ["phone", "call", "number", "contact", "email", "mail"],
+        "keywords": ["phone", "call", "number", "contact", "email", "mail", "whatsapp"],
         "question": "How can I contact Clipzo?",
         "answer": "Call or WhatsApp +91 95916 31027, or email clipzoindia@gmail.com."
       },
       {
-        "keywords": ["photography", "videography", "drone", "camera service", "traditional", "candid"],
+        "keywords": ["photography", "videography", "drone", "camera service", "traditional", "candid", "camera services"],
         "question": "What production services do you offer?",
-        "answer": "Clipzo offers Traditional Videography from ₹7,990, Candid Videography from ₹11,990, Traditional Photography from ₹7,990, Candid Photography from ₹11,990, and Drone Videography from ₹5,999."
+        "answer": "Clipzo offers Traditional Videography starting at ₹7,990, Candid Videography starting at ₹11,990, Traditional Photography starting at ₹7,990, Candid Photography starting at ₹11,990, and Drone Videography starting at ₹5,999."
       },
       {
-        "keywords": ["editing service", "premiere", "after effects", "colour grading", "cinematic highlight", "pc editing"],
+        "keywords": ["traditional videography", "traditional video", "traditional videography price", "7990", "₹7,990"],
+        "question": "What is Traditional Videography?",
+        "answer": "Traditional Videography starts at ₹7,990. It includes one cinematic edit on professional camera, raw footage on request, Premiere Pro and DaVinci Resolve editing, slow-mo, transitions, overlays, and professional colour grading."
+      },
+      {
+        "keywords": ["candid videography", "candid video", "candid videography price", "11990", "₹11,990"],
+        "question": "What is Candid Videography?",
+        "answer": "Candid Videography starts at ₹11,990. It includes one cinematic highlights edit on professional camera, raw footage on request, Premiere Pro and After Effects editing, slow-mo, transitions, overlays, and professional colour grading."
+      },
+      {
+        "keywords": ["traditional photography", "traditional photo", "traditional photography price"],
+        "question": "What is Traditional Photography?",
+        "answer": "Traditional Photography starts at ₹7,990. It provides professional event photography shaped around your brief."
+      },
+      {
+        "keywords": ["candid photography", "candid photo", "candid photography price"],
+        "question": "What is Candid Photography?",
+        "answer": "Candid Photography starts at ₹11,990. It provides natural, story-led photography for events and celebrations."
+      },
+      {
+        "keywords": ["drone", "drone video", "drone videography", "aerial", "aerial video", "drone price", "5999", "₹5,999"],
+        "question": "What is Drone Videography?",
+        "answer": "Drone Videography starts at ₹5,999. It provides aerial coverage for locations, events, and cinematic productions."
+      },
+      {
+        "keywords": ["editing service", "editing services", "premiere", "premiere pro", "after effects", "colour grading", "color grading", "cinematic highlight", "pc editing"],
         "question": "What editing services do you offer?",
-        "answer": "High-end PC Editing Services start at ₹2,499 and include Premiere Pro or After Effects, a reel under 60 seconds, colour grading, transitions, motion graphics, and 1080p or 4K output. Cinematic Highlight Services start at ₹4,999 and include Premiere Pro and DaVinci Resolve, highlights under 5 minutes, colour grading, audio cleanup, and 1080p or 4K output."
+        "answer": "High-end PC Editing Services start at ₹2,499 and include Premiere Pro or After Effects, a reel under 60 seconds, professional colour grading, smooth cuts, transitions and pacing, basic motion graphics and titles, slow-mo, speed ramping, overlays, and 1080p or 4K output as required. Cinematic Highlight Services start at ₹4,999 and include Premiere Pro and DaVinci Resolve, highlights under 5 minutes, professional colour grading, smooth cuts, transitions and pacing, audio cleanup and soundtrack syncing, and cinematic slow-mo and overlays."
+      },
+      {
+        "keywords": ["pc editing", "high end pc editing", "high-end pc editing", "2499", "₹2,499", "editing price"],
+        "question": "What are High-end PC Editing Services?",
+        "answer": "High-end PC Editing Services start at ₹2,499. They include Premiere Pro or After Effects, a reel under 60 seconds, professional colour grading, smooth cuts, transitions and pacing, basic motion graphics and titles, slow-mo, speed ramping, overlays, and 1080p or 4K output as required."
+      },
+      {
+        "keywords": ["cinematic highlight", "cinematic highlights", "highlight service", "highlight editing", "4999", "₹4,999"],
+        "question": "What are Cinematic Highlight Services?",
+        "answer": "Cinematic Highlight Services start at ₹4,999. They include Premiere Pro and DaVinci Resolve, highlights under 5 minutes, professional colour grading, smooth cuts, transitions and pacing, audio cleanup and soundtrack syncing, and cinematic slow-mo and overlays."
       },
       {
         "keywords": ["gear", "camera", "iphone", "equipment"],
@@ -55,14 +130,159 @@
         "answer": "Clipzo uses the latest iPhone series for reel making, with professional cameras, lighting, and editing options available for premium productions."
       },
       {
-        "keywords": ["revision", "revisions", "change", "edit again"],
-        "question": "Can I request revisions?",
-        "answer": "Two revisions are included. Additional revisions or major changes can be arranged at an extra charge."
+        "keywords": ["iphone", "latest iphone", "iphone series"],
+        "question": "Which iPhone do you use for Reel Making?",
+        "answer": "Clipzo's Reel Making packages use the latest iPhone series."
       },
       {
-        "keywords": ["book", "booking", "advance", "payment", "reserve"],
+        "keywords": ["professional camera", "camera equipment", "camera gear"],
+        "question": "Do you use professional cameras?",
+        "answer": "Yes. Clipzo's camera services use professional cameras."
+      },
+      {
+        "keywords": ["revision", "revisions", "change", "edit again", "changes", "correction"],
+        "question": "Can I request revisions?",
+        "answer": "A maximum of two revisions is included. Additional revisions or major changes are chargeable."
+      },
+      {
+        "keywords": ["two revisions", "2 revisions", "included revisions"],
+        "question": "How many revisions are included?",
+        "answer": "A maximum of two revisions is included."
+      },
+      {
+        "keywords": ["extra revision", "additional revision", "more revisions", "revision charge"],
+        "question": "Are additional revisions chargeable?",
+        "answer": "Yes. Additional revisions or major changes are chargeable."
+      },
+      {
+        "keywords": ["book", "booking", "advance", "payment", "reserve", "reservation"],
         "question": "How do I book Clipzo?",
-        "answer": "You can start by sending your project details through the enquiry form or contact Clipzo on WhatsApp. A 50% non-refundable advance confirms a booking, and the balance is due immediately after the shoot."
+        "answer": "You can start by sending your project details through the enquiry form or contact Clipzo on WhatsApp. A minimum 50% non-refundable advance payment is required to confirm the booking, and the remaining payment must be cleared immediately after the shoot."
+      },
+      {
+        "keywords": ["50%", "50 percent", "advance", "advance payment", "booking advance"],
+        "question": "How much advance is required for booking?",
+        "answer": "A minimum 50% non-refundable advance payment is required to confirm the booking."
+      },
+      {
+        "keywords": ["non refundable", "non-refundable", "refund", "advance refund"],
+        "question": "Is the booking advance refundable?",
+        "answer": "The minimum 50% booking advance is non-refundable."
+      },
+      {
+        "keywords": ["balance", "remaining payment", "final payment", "payment after shoot"],
+        "question": "When is the remaining payment due?",
+        "answer": "The remaining payment must be cleared immediately after the shoot."
+      },
+      {
+        "keywords": ["shoot time", "shoot starts", "arrival", "shoot timing"],
+        "question": "When does shoot time start?",
+        "answer": "Shoot time starts upon our arrival at the location."
+      },
+      {
+        "keywords": ["shoot ends", "departure", "shoot ending"],
+        "question": "When does shoot time end?",
+        "answer": "Shoot time ends at our departure from the location."
+      },
+      {
+        "keywords": ["music", "song", "background music", "music choice", "choose music"],
+        "question": "Can I choose the music?",
+        "answer": "The client may choose the music. Team Clipzo can also provide recommendations."
+      },
+      {
+        "keywords": ["music recommendation", "song recommendation", "clipzo music"],
+        "question": "Can Clipzo recommend music?",
+        "answer": "Yes. Team Clipzo can provide music recommendations."
+      },
+      {
+        "keywords": ["change music", "change song", "music change", "replace music"],
+        "question": "Can finalized music be changed?",
+        "answer": "Finalized music cannot be changed."
+      },
+      {
+        "keywords": ["raw footage", "raw video", "original footage", "unedited footage", "raw files"],
+        "question": "Can I get the raw footage?",
+        "answer": "Raw footage is provided upon request."
+      },
+      {
+        "keywords": ["terms", "terms and conditions", "conditions", "rules", "booking terms"],
+        "question": "What are Clipzo's terms and conditions?",
+        "answer": "Shoot time starts upon our arrival at the location and ends at our departure. A minimum 50% non-refundable advance payment is required to confirm the booking. The remaining payment must be cleared immediately after the shoot. The client may choose the music, and Team Clipzo can also provide recommendations. Finalized music cannot be changed. A maximum of two revisions is included. Additional revisions or major changes are chargeable. Extra shooting time is charged as per the selected package. Raw footage is provided upon request."
+      },
+      {
+        "keywords": ["travel policy", "travel terms", "location policy"],
+        "question": "What is Clipzo's Travel Policy?",
+        "answer": "Travel within a 10 km radius of Mangaluru city is complimentary. Locations beyond 10 km are subject to a ₹500 travel charge. This policy applies only to shoots based in Mangaluru. Shoots in other cities or states are quoted separately."
+      },
+      {
+        "keywords": ["privacy", "privacy policy", "personal information", "personal data"],
+        "question": "What is Clipzo's Privacy Policy?",
+        "answer": "Clipzo only uses the details you share to respond to your enquiry and deliver the requested service."
+      },
+      {
+        "keywords": ["information collected", "data collected", "what information", "personal details"],
+        "question": "What information does Clipzo collect?",
+        "answer": "Clipzo may collect your name, contact details, project information, and portfolio or booking information when you contact us."
+      },
+      {
+        "keywords": ["why collect information", "use my information", "data usage"],
+        "question": "Why does Clipzo collect my information?",
+        "answer": "Clipzo uses this information to discuss your project, confirm bookings, provide services, process payments, and communicate important production updates."
+      },
+      {
+        "keywords": ["sell information", "sell data", "personal information sale"],
+        "question": "Does Clipzo sell my personal information?",
+        "answer": "No. Clipzo does not sell your personal information."
+      },
+      {
+        "keywords": ["share information", "share data", "third party", "data sharing"],
+        "question": "Does Clipzo share my information?",
+        "answer": "Clipzo shares your information only with the people needed to deliver your project or when required by law."
+      },
+      {
+        "keywords": ["retain information", "data retention", "how long data"],
+        "question": "How long does Clipzo retain my information?",
+        "answer": "Clipzo retains enquiry and booking information only for as long as reasonably necessary for business, legal, and service purposes."
+      },
+      {
+        "keywords": ["delete information", "delete data", "remove information", "data deletion"],
+        "question": "Can I request deletion of my information?",
+        "answer": "Yes. You can request access to, correction of, or deletion of your personal information by contacting clipzoindia@gmail.com."
+      },
+      {
+        "keywords": ["correct information", "change information", "update details", "correct personal data"],
+        "question": "Can I request correction of my information?",
+        "answer": "Yes. You can request correction of your personal information by contacting clipzoindia@gmail.com."
+      },
+      {
+        "keywords": ["enquiry", "inquiry", "contact enquiry", "submit enquiry"],
+        "question": "What happens when I submit an enquiry?",
+        "answer": "By submitting an enquiry, you agree that Clipzo may contact you about that enquiry."
+      },
+      {
+        "keywords": ["instagram", "reels", "social media reel", "social media"],
+        "question": "Does Clipzo create Instagram reels?",
+        "answer": "Yes. Clipzo specializes in cinematic short-form video and reel production."
+      },
+      {
+        "keywords": ["event", "event shoot", "event coverage", "function", "function shoot"],
+        "question": "Does Clipzo cover events?",
+        "answer": "Yes. Clipzo provides event coverage through its Reel Making, Videography, Photography, and Cinematic Highlight services."
+      },
+      {
+        "keywords": ["wedding", "marriage", "wedding video", "wedding reel", "wedding photography"],
+        "question": "Does Clipzo provide wedding services?",
+        "answer": "Clipzo offers videography, photography, cinematic reels, highlights, and related production services suitable for events and celebrations."
+      },
+      {
+        "keywords": ["brand", "brand shoot", "business shoot", "creator", "creator shoot"],
+        "question": "Does Clipzo work with brands and creators?",
+        "answer": "Yes. Clipzo provides professional production and post-production support for events, brands, and creators."
+      },
+      {
+        "keywords": ["production", "professional production", "post production", "post-production"],
+        "question": "Does Clipzo provide production and post-production support?",
+        "answer": "Yes. Clipzo provides professional production and post-production support for events, brands, and creators."
       }
     ]
   },

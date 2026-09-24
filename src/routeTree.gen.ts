@@ -14,6 +14,7 @@ import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as ClipzoRouteImport } from './routes/clipzo'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as AcademyPageRouteImport } from './routes/academy.$page'
+import { Route as ApiYoutubeReelsRouteImport } from './routes/api.youtube-reels'
 import { Route as ClipzoPageRouteImport } from './routes/clipzo.$page'
 import { Route as StudioPageRouteImport } from './routes/studio.$page'
 
@@ -42,6 +43,11 @@ const AcademyPageRoute = AcademyPageRouteImport.update({
   path: '/$page',
   getParentRoute: () => AcademyRoute,
 } as any)
+const ApiYoutubeReelsRoute = ApiYoutubeReelsRouteImport.update({
+  id: '/api/youtube-reels',
+  path: '/api/youtube-reels',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ClipzoPageRoute = ClipzoPageRouteImport.update({
   id: '/$page',
   path: '/$page',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/clipzo': typeof ClipzoRouteWithChildren
   '/studio': typeof StudioRouteWithChildren
   '/academy/$page': typeof AcademyPageRoute
+  '/api/youtube-reels': typeof ApiYoutubeReelsRoute
   '/clipzo/$page': typeof ClipzoPageRoute
   '/studio/$page': typeof StudioPageRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/clipzo': typeof ClipzoRouteWithChildren
   '/studio': typeof StudioRouteWithChildren
   '/academy/$page': typeof AcademyPageRoute
+  '/api/youtube-reels': typeof ApiYoutubeReelsRoute
   '/clipzo/$page': typeof ClipzoPageRoute
   '/studio/$page': typeof StudioPageRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/clipzo': typeof ClipzoRouteWithChildren
   '/studio': typeof StudioRouteWithChildren
   '/academy/$page': typeof AcademyPageRoute
+  '/api/youtube-reels': typeof ApiYoutubeReelsRoute
   '/clipzo/$page': typeof ClipzoPageRoute
   '/studio/$page': typeof StudioPageRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/clipzo'
     | '/studio'
     | '/academy/$page'
+    | '/api/youtube-reels'
     | '/clipzo/$page'
     | '/studio/$page'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/clipzo'
     | '/studio'
     | '/academy/$page'
+    | '/api/youtube-reels'
     | '/clipzo/$page'
     | '/studio/$page'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/clipzo'
     | '/studio'
     | '/academy/$page'
+    | '/api/youtube-reels'
     | '/clipzo/$page'
     | '/studio/$page'
   fileRoutesById: FileRoutesById
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AcademyRoute: typeof AcademyRouteWithChildren
   ClipzoRoute: typeof ClipzoRouteWithChildren
   StudioRoute: typeof StudioRouteWithChildren
+  ApiYoutubeReelsRoute: typeof ApiYoutubeReelsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/academy/$page'
       preLoaderRoute: typeof AcademyPageRouteImport
       parentRoute: typeof AcademyRoute
+    }
+    '/api/youtube-reels': {
+      id: '/api/youtube-reels'
+      path: '/api/youtube-reels'
+      fullPath: '/api/youtube-reels'
+      preLoaderRoute: typeof ApiYoutubeReelsRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/clipzo/$page': {
       id: '/clipzo/$page'
@@ -210,6 +230,7 @@ const rootRouteChildren: RootRouteChildren = {
   AcademyRoute: AcademyRouteWithChildren,
   ClipzoRoute: ClipzoRouteWithChildren,
   StudioRoute: StudioRouteWithChildren,
+  ApiYoutubeReelsRoute: ApiYoutubeReelsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

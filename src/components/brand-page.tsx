@@ -49,33 +49,202 @@ function HomePage({ brand }: { brand: BrandKey }) {
         <p className="hero-strapline">{data.strapline}</p>
     </section>
     <section id="capabilities" className="capability-section">
-        {brand === "studio" ? <div className="coming-soon-panel"><p className="kicker">Inside the soundstage</p><h2>Clipzo Studio is coming soon.</h2><p>Our production floor, camera systems, lighting, and crew support are being prepared. We’ll share the launch details soon.</p></div> : <>
+        {brand === "studio" ? <>
+          <div className="section-heading"><div><p className="kicker">About Clipzo Studio</p><h2>Production spaces built for idea, craft, and impact.</h2></div><p>Clipzo Studio is a creative studio built around storytelling, visual production, and digital content. From photography, videography, podcast production, and brand storytelling to polished content experiences, we create work that feels cinematic, intentional, and memorable.</p></div>
+          <div className="detail-grid studio-introduction-grid">
+            <article><span>01</span><h3>Visual storytelling</h3><p>Creative work shaped around narratives, mood, movement, and a clear point of view that makes your brand feel alive.</p></article>
+            <article><span>02</span><h3>Production flexibility</h3><p>Photography, videography, podcast production, and content production support designed to fit your brief and your timeline.</p></article>
+            <article><span>03</span><h3>Creative momentum</h3><p>From concept to final delivery, we help teams move from idea to polished visual output without friction.</p></article>
+          </div>
+          <div className="studio-home-subsection">
+            <div className="section-heading"><div><p className="kicker">Vision & Mission</p><h2>Turn good ideas into production value.</h2></div><p>We build creative systems that help brands and creators communicate with confidence, presence, and lasting recall.</p></div>
+            <div className="detail-grid">
+              <article><span>Vision</span><h3>Stories that last</h3><p>To become a trusted production partner for brands, founders, and creators who want strong, cinematic, story-led content.</p></article>
+              <article><span>Mission</span><h3>Work that performs</h3><p>To produce thoughtful visual content that blends storytelling, production craft, and digital clarity with measurable creative impact.</p></article>
+              <article><span>Approach</span><h3>Creative systems</h3><p>From photography to podcasts and polished visual storytelling, we turn ideas into content that is made to be seen and remembered.</p></article>
+            </div>
+          </div>
+          <div className="studio-home-subsection">
+            <div className="section-heading"><div><p className="kicker">Studio for rent</p><h2>Production-ready space for your next shoot.</h2></div><p>Book Clipzo Studio for product shoots, brand films, interviews, podcast recordings, social content, and small productions.</p></div>
+            <div className="detail-grid">
+              <article><span>01</span><h3>Creative studio rental</h3><p>Flexible booking for teams that need a polished environment and a professional backdrop.</p></article>
+              <article><span>02</span><h3>Built for production</h3><p>Professional lighting, usable camera space, and clean visual framing for efficient shoots.</p></article>
+              <article><span>03</span><h3>Ready when you are</h3><p>Bring your brief, team, and timeline into a space designed to move ideas into captured stories.</p></article>
+            </div>
+          </div>
+          <div className="studio-home-subsection studio-home-gallery">
+            <div className="section-heading"><div><p className="kicker">Studio preview</p><h2>Multiple angles. One cinematic setup.</h2></div><p>Preview the studio environment and imagine your shoot before you book.</p></div>
+            <div className="studio-gallery-grid" aria-label="Clipzo Studio gallery preview">
+              <figure className="studio-gallery-card studio-gallery-card-one"><img src={brands.studio.image} alt="Clipzo Studio front-angle production floor" /><figcaption>Front angle</figcaption></figure>
+              <figure className="studio-gallery-card studio-gallery-card-two"><img src={brands.studio.image} alt="Clipzo Studio side-angle production floor" /><figcaption>Side view</figcaption></figure>
+              <figure className="studio-gallery-card studio-gallery-card-three"><img src={brands.studio.image} alt="Clipzo Studio wide-angle studio setup" /><figcaption>Wide setup</figcaption></figure>
+            </div>
+          </div>
+        </> : <>
           <div className="section-heading"><div><p className="kicker">Inside {data.room}</p><h2>Built for serious creative work.</h2></div><p>A focused experience shaped around the way creators actually learn, shoot, edit, and deliver.</p></div>
           <div className="capability-grid">{data.features.map((feature, index) => <article key={feature}><span>0{index + 1}</span><h3>{feature}</h3><Check /></article>)}</div>
           <div className="stat-line">{data.stats.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
         </>}
     </section>
+    {brand === "academy" && <>
+      <section className="detail-section academy-about-section">
+        <div className="section-heading">
+          <div>
+            <p className="kicker">About Clipzo Academy</p>
+            <h2>Learn with experience. Create with purpose.</h2>
+          </div>
+          <p>Clipzo Academy is a professional learning platform built for aspiring editors and creators. Powered by Clipzo’s real industry experience, the Academy focuses on practical editing skills, mentorship, and real project exposure.</p>
+        </div>
+        <div className="detail-grid studio-introduction-grid">
+          <article>
+            <span>About</span>
+            <h3>Clipzo Academy</h3>
+            <p>Built for creators who want to learn editing and storytelling through real-world practice, professional guidance, and portfolio-ready output.</p>
+          </article>
+          <article>
+            <span>Growth</span>
+            <h3>Practical skill</h3>
+            <p>From beginner fundamentals to advanced concepts in Adobe After Effects, we help learners build confidence, creative direction, and real industry capability.</p>
+          </article>
+          <article>
+            <span>Promise</span>
+            <h3>Grow with Clipzo</h3>
+            <p>Learn with experience. Create with purpose. Grow with Clipzo.</p>
+          </article>
+        </div>
+      </section>
+      <section className="detail-section studio-home-subsection">
+        <div className="section-heading">
+          <div>
+            <p className="kicker">Vision & Mission</p>
+            <h2>Build skill, confidence, and creative direction.</h2>
+          </div>
+          <p>We create a learning environment shaped around practical work, thoughtful feedback, and the habits that help students grow into real creative professionals.</p>
+        </div>
+        <div className="detail-grid">
+          <article>
+            <span>Vision</span>
+            <h3>Next-generation creators</h3>
+            <p>To build the next generation of skilled editors and creative professionals through practical learning and real industry experience.</p>
+          </article>
+          <article>
+            <span>Mission</span>
+            <h3>Practical skills that matter</h3>
+            <p>To provide practical editing education, mentorship, real project exposure, and professional workflows that help students turn their passion for editing into a valuable skill.</p>
+          </article>
+          <article>
+            <span>Purpose</span>
+            <h3>Creative growth</h3>
+            <p>We help students sharpen their skills, build their portfolio, and move toward a career with clarity and confidence.</p>
+          </article>
+        </div>
+      </section>
+      <section className="detail-section studio-home-subsection">
+        <div className="section-heading">
+          <div>
+            <p className="kicker">Why learn here</p>
+            <h2>Creative learning built around the real workflow.</h2>
+          </div>
+          <p>Every part of the Academy is designed to help students learn by creating, practising, and refining the craft that matters most in the industry.</p>
+        </div>
+        <div className="detail-grid">
+          <article>
+            <span>01</span>
+            <h3>Industry-led learning</h3>
+            <p>Students learn with the same creative thinking, workflow discipline, and production mindset used inside real client work.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Mentorship that matters</h3>
+            <p>Feedback and guidance are built into the process so students improve with clarity and build strong creative habits early.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Portfolio-ready output</h3>
+            <p>Each learner works toward practical results they can proudly present, use, and build on in their creative career.</p>
+          </article>
+        </div>
+      </section>
+    </>}
     {brand === "academy" && <section id="academy-enrolment" className="academy-enrolment">
-      <div className="academy-enrolment-copy">
+      {/* <div className="academy-enrolment-copy">
         <p className="kicker">Enroll today</p>
         <h2>One Goal • One Decision • One Direction</h2>
         <p>Choose your path. Commit to your craft. The next step in your creative journey starts here.</p>
         <div className="academy-enrolment-actions">
           <Button asChild variant="brand" size="lg"><a href={academyEnrollmentFormUrl} target="_blank" rel="noreferrer">Open Google Form <ArrowUpRight /></a></Button>        </div>
-      </div>
-      <div id="academy-form" className="academy-enrolment-form">
+      </div> */}
+      {/* <div id="academy-form" className="academy-enrolment-form">
         <iframe src={`${academyEnrollmentFormUrl}&embedded=true`} title="Clipzo Academy enrollment form" loading="lazy">Loading the enrollment form...</iframe>
-      </div>
+      </div> */}
     </section>}
-    {brand !== "studio" && <Enquiry brand={brand} />}
+    {brand === "academy" && <Enquiry brand="academy" />}
+    {brand === "studio" && <Enquiry brand="studio" />}
+    {brand === "academy" && <BrandContactSection brand="academy" />}
+    {brand === "studio" && <BrandContactSection brand="studio" />}
+    {brand !== "studio" && brand !== "academy" && <Enquiry brand={brand} />}
   </>;
 }
 
 const whatsappUrl = "https://wa.me/919591631027?text=Hi%20Clipzo%2C%20I%27d%20like%20to%20book%20a%20reel%20shoot";
+const academyAddress = "Kelle Court Bld, 3rd Floor, P. M. Rao Road, Hampankatta, Mangaluru";
+const studioAddress = "Kelle Court Bld, 3rd Floor, P. M. Rao Road, Hampankatta, Mangaluru";
+const academyInstagramUrl = "https://www.instagram.com/clipzo_academy/?hl=en";
+const studioInstagramUrl = "https://www.instagram.com/clipzo.in_";
+const academyWhatsappUrl = "https://wa.me/919019348392?text=Hi%20Clipzo%20Academy%2C%20I%27d%20like%20to%20enquire%20about%20the%20course.";
+const studioWhatsappUrl = "https://wa.me/919019348392?text=Hi%20Clipzo%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20production%20project.";
 const youtubeChannelId = "UCOfGYJgXItJTgmQQiQJYI7Q";
 const youtubeChannelUrl = `https://www.youtube.com/channel/${youtubeChannelId}`;
 
-export type YoutubeReel = { id: string; title: string; thumbnail: string; url: string };
+function BrandContactSection({ brand }: { brand: BrandKey }) {
+  const isAcademy = brand === "academy";
+  const contact = isAcademy ? {
+    kicker: "Your next creative step starts here.",
+    headline: "Learn the craft. Build the work. Move forward with confidence.",
+    phone: "+91 90193 48392",
+    phoneHref: "tel:+919019348392",
+    email: "clipzoacademy@gmail.com",
+    emailHref: "mailto:clipzoacademy@gmail.com",
+    instagram: "Instagram: clipzo_academy",
+    instagramHref: academyInstagramUrl,
+    website: "www.clipzo.in",
+    websiteHref: "https://www.clipzo.in/academy",
+    whatsappHref: academyWhatsappUrl,
+    googleMapsHref: "https://www.google.com/maps/search/?api=1&query=Kelle+Court+Bld%2C+3rd+Floor%2C+P.+M.+Rao+Road%2C+Hampankatta%2C+Mangaluru",
+  } : {
+    kicker: "Your next production starts here.",
+    headline: "We build stories that feel cinematic, clear, and unforgettable.",
+    phone: "+91 90193 48392",
+    phoneHref: "tel:+919019348392",
+    email: "clipzostudio@gmail.com",
+    emailHref: "mailto:clipzostudio@gmail.com",
+    instagram: "Instagram: clipzo.in_",
+    instagramHref: studioInstagramUrl,
+    website: "www.clipzo.in",
+    websiteHref: "https://www.clipzo.in/studio",
+    whatsappHref: studioWhatsappUrl,
+    googleMapsHref: "https://www.google.com/maps/search/?api=1&query=Kelle+Court+Bld%2C+3rd+Floor%2C+P.+M.+Rao+Road%2C+Hampankatta%2C+Mangaluru",
+  };
+
+  return <section className="clipzo-contact">
+    <div>
+      <p className="kicker">{contact.kicker}</p>
+      <h2>{contact.headline}</h2>
+      <Button asChild variant="brand" size="lg"><a href={contact.whatsappHref}>Book on WhatsApp <ArrowUpRight /></a></Button>
+    </div>
+    <address>
+      <p><Phone /> <a href={contact.phoneHref}>{contact.phone}</a></p>
+      <p><MapPin />Operating in Mangaluru.</p>
+      <p><Mail /><a href={contact.emailHref}>{contact.email}</a></p>
+      <p><Instagram /><a href={contact.instagramHref} target="_blank" rel="noreferrer">{contact.instagram}</a></p>
+      <p><Globe2 /><a href={contact.websiteHref} target="_blank" rel="noreferrer">{contact.website}</a></p>
+      <p><Clock3 />Monday–Saturday, 10:00 AM – 8:00 PM</p>
+      <a href={contact.googleMapsHref} target="_blank" rel="noreferrer">Open in Google Maps <ArrowUpRight /></a>
+    </address>
+  </section>;
+}
+
+export type YoutubeReel = { id: string; title: string; description: string; publishedAt: string; thumbnail: string; youtubeUrl: string };
 
 const reelFeatures = [
   ["Pro Shooting", "Cinematic shots by trained reel specialists on location."],
@@ -125,12 +294,37 @@ function ProductionBrief() {
 const workflow = ["Book", "Shoot", "Edit", "Review", "Deliver"];
 
 function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean; youtubeReels?: YoutubeReel[] }) {
-  const sourceCards = youtubeReels;
+  const [sourceCards, setSourceCards] = useState(youtubeReels);
+  const [isLoading, setIsLoading] = useState(youtubeReels.length === 0);
   const videoCards = [...sourceCards, ...sourceCards];
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
   const selectedVideo = selectedIndex === null ? null : videoCards[selectedIndex];
      const trackRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+      setSourceCards(youtubeReels);
+      setIsLoading(youtubeReels.length === 0);
+    }, [youtubeReels]);
+
+    useEffect(() => {
+      let active = true;
+      const refresh = async () => {
+        try {
+          const response = await fetch("/api/youtube-reels");
+          if (!response.ok) return;
+          const payload = await response.json() as { videos?: YoutubeReel[] };
+          if (active && Array.isArray(payload.videos) && payload.videos.length > 0) setSourceCards(payload.videos);
+        } catch {
+          // Keep the server-rendered or previously cached feed when revalidation fails.
+        } finally {
+          if (active) setIsLoading(false);
+        }
+      };
+      void refresh();
+      const interval = window.setInterval(refresh, 30 * 60_000);
+      return () => { active = false; window.clearInterval(interval); };
+    }, []);
 
   function movePreview(direction: 1 | -1) {
     setSelectedIndex(index => index === null ? null : (index + direction + videoCards.length) % videoCards.length);
@@ -172,7 +366,8 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
       <div><p className="kicker">Portfolio</p><h2>{fullPage ? "Watch the work." : "Reels that keep moving."}</h2></div>
       <p>{fullPage ? "A moving archive of Clipzo production, learning, and studio stories." : "A glimpse of what we shoot, edit, and deliver for creators, brands, and celebrations."}</p>
     </div>
-    <div className="reel-track" ref={trackRef} aria-label="Clipzo reel showcase">
+    {isLoading && <div className="reel-loading-state" aria-label="Loading Clipzo reels"><span /><span /><span /></div>}
+    {!isLoading && sourceCards.length > 0 && <div className="reel-track" ref={trackRef} aria-label="Clipzo reel showcase">
       <div className="reel-track-motion">
         {videoCards.map((video, index) => <button className="reel-tile" type="button" onClick={() => setSelectedIndex(index)} key={`${video.id}-${index}`}>
           <img src={video.thumbnail} alt="" loading={index < 8 ? "eager" : "lazy"} decoding="async" onError={(event) => {
@@ -193,18 +388,18 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
           <span className="reel-tile-copy"><b>{video.title}</b><small>Watch on YouTube</small></span>
         </button>)}
       </div>
-    </div>
-    {sourceCards.length === 0 && <div className="reel-empty-state"><p>Latest Clipzo reels are unavailable right now.</p><a href={youtubeChannelUrl} target="_blank" rel="noreferrer">Watch the original videos on YouTube <ArrowUpRight /></a></div>}
-       <div className="reel-mobile-controls" aria-label="Scroll reels">
+    </div>}
+    {!isLoading && sourceCards.length === 0 && <div className="reel-empty-state"><p>New cinematic stories are coming soon.</p><a href={youtubeChannelUrl} target="_blank" rel="noreferrer">Watch Clipzo on YouTube <ArrowUpRight /></a></div>}
+       {!isLoading && sourceCards.length > 0 && <div className="reel-mobile-controls" aria-label="Scroll reels">
          <button type="button" onClick={() => scrollReels(-1)} aria-label="Scroll reels left"><ArrowLeft /></button>
          <button type="button" onClick={() => scrollReels(1)} aria-label="Scroll reels right"><ArrowRight /></button>
-       </div>
+       </div>}
     {!fullPage && <div className="reel-showcase-action"><a href={youtubeChannelUrl} target="_blank" rel="noreferrer" className="button button-brand">View more <ArrowUpRight /></a></div>}
     {selectedVideo && <div className="reel-modal" role="dialog" aria-modal="true" aria-label={selectedVideo.title} onClick={() => setSelectedIndex(null)}>
       <button className="reel-modal-close" type="button" onClick={() => setSelectedIndex(null)} aria-label="Close preview"><X /></button>
       <button className="reel-modal-nav reel-modal-prev" type="button" onClick={(event) => { event.stopPropagation(); movePreview(-1); }} aria-label="Previous video"><ArrowLeft /></button>
       <div className="reel-modal-content" onClick={(event) => event.stopPropagation()} onTouchStart={(event) => { touchStartX.current = event.touches[0]?.clientX ?? null; }} onTouchEnd={(event) => { const startX = touchStartX.current; const endX = event.changedTouches[0]?.clientX; touchStartX.current = null; if (startX === null || endX === undefined || Math.abs(endX - startX) < 45) return; movePreview(endX < startX ? 1 : -1); }}>
-        {selectedVideo.id.length === 11 ? <iframe src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1&playsinline=1&rel=0&modestbranding=1&vq=hd2160`} title={selectedVideo.title} allow="autoplay; encrypted-media; picture-in-picture; web-share" allowFullScreen /> : <img src={selectedVideo.thumbnail} alt={selectedVideo.title} />}
+        <iframe src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1&playsinline=1&rel=0&modestbranding=1`} title={selectedVideo.title} allow="autoplay; encrypted-media; picture-in-picture; web-share" allowFullScreen />
       </div>
       <button className="reel-modal-nav reel-modal-next" type="button" onClick={(event) => { event.stopPropagation(); movePreview(1); }} aria-label="Next video"><ArrowRight /></button>
     </div>}
@@ -288,14 +483,136 @@ function ClipzoHome({ youtubeReels = [] }: { youtubeReels?: YoutubeReel[] }) {
 
     <section id="contact" className="clipzo-contact">
       <div><p className="kicker">Your next viral reel is 10 minutes away.</p><h2>Tap below and we’ll be on the shoot before you finish scrolling.</h2><Button asChild variant="brand" size="lg"><a href={whatsappUrl}>Book on WhatsApp <ArrowUpRight /></a></Button></div>
-      <address><p><Phone /> <a href="tel:+919591631027">+91 95916 31027</a></p><p><MapPin />Operating in Mangaluru, Bengaluru, Udupi, and Kerala.</p><p><Mail /><a href="mailto:clipzoindia@gmail.com">clipzoindia@gmail.com</a></p><p><Instagram /><a href="https://www.instagram.com/clipzo.in_">Instagram: clipzo.in_</a></p><p><Globe2 /><a href="https://www.clipzo.in">www.clipzo.in</a></p><p><Clock3 />Monday–Saturday, 10:00 AM – 8:00 PM</p><a href="https://www.google.com/maps/search/?api=1&query=Shree+Mangaladevi+Palace+Clock+Tower+Hampankatta+Mangaluru">Open in Google Maps <ArrowUpRight /></a></address>
+      <address><p><Phone /> <a href="tel:+919591631027">+91 95916 31027</a></p><p><MapPin />Operating in Mangaluru, Bengaluru, Udupi, and Kerala.</p><p><Mail /><a href="mailto:clipzoindia@gmail.com">clipzoindia@gmail.com</a></p><p><Instagram /><a href="https://www.instagram.com/clipzo.in_">Instagram: clipzo.in_</a></p><p><Globe2 /><a href="https://www.clipzo.in" target="_blank" rel="noreferrer">www.clipzo.in</a></p><p><Clock3 />Monday–Saturday, 10:00 AM – 8:00 PM</p><a href="https://maps.app.goo.gl/aqRRaSFYjpqHUS8N7" target="_blank" rel="noreferrer">Open in Google Maps <ArrowUpRight /></a></address>
     </section>
+  </>;
+}
+
+function AcademyAboutPage() {
+  return <>
+    <section className="page-hero">
+      <img src={brands.academy.image} alt={brands.academy.imageAlt} className="page-hero-image" />
+      <div className="page-hero-shade" />
+      <div className="page-hero-copy">
+        <BrandLogo brand="academy" className="page-brand-logo" />
+        <p className="kicker">About</p>
+        <h1>Learn with experience. Create with purpose.</h1>
+        <p>Clipzo Academy is a professional learning platform built for aspiring editors and creators.</p>
+        <p>Powered by Clipzo’s real industry experience, the Academy focuses on practical editing skills, professional workflows, mentorship, and real project exposure.</p>
+        <p>From beginner fundamentals to advanced Adobe After Effects, we help creators build the skills, confidence, and portfolio needed to pursue editing professionally.</p>
+        <p><strong>Learn with experience. Create with purpose. Grow with Clipzo.</strong></p>
+      </div>
+    </section>
+    <section className="detail-section">
+      <div className="section-heading"><div><p className="kicker">About Clipzo Academy</p><h2>Learn with experience. Create with purpose.</h2></div></div>
+      <div className="detail-grid">
+        <article><span>About</span><h3>Clipzo Academy</h3><p>Clipzo Academy is a professional learning platform built for aspiring editors and creators. Powered by Clipzo’s real industry experience, the Academy focuses on practical editing skills, professional workflows, mentorship, and real project exposure.</p></article>
+        <article><span>Growth</span><h3>Practical skill</h3><p>From beginner fundamentals to advanced Adobe After Effects, we help creators build the skills, confidence, and portfolio needed to pursue editing professionally.</p></article>
+        <article><span>Promise</span><h3>Grow with Clipzo</h3><p>Learn with experience. Create with purpose. Grow with Clipzo.</p></article>
+      </div>
+    </section>
+    <section className="detail-section">
+      <div className="section-heading"><div><p className="kicker">Vision & Mission</p><h2>Build skill, confidence, and creative direction.</h2></div></div>
+      <div className="detail-grid">
+        <article><span>Vision</span><h3>Next-generation creators</h3><p>To build the next generation of skilled editors and creative professionals through practical learning and real industry experience.</p></article>
+        <article><span>Mission</span><h3>Practical skills that matter</h3><p>To provide practical editing education, mentorship, real project exposure, and professional workflows that help students turn their passion for editing into a valuable skill.</p></article>
+        <article><span>Purpose</span><h3>Creative growth</h3><p>Learn with experience. Create with purpose. Grow with Clipzo.</p></article>
+      </div>
+    </section>
+    <section className="detail-section">
+      <div className="section-heading"><div><p className="kicker">Contact</p><h2>Reach the Academy team.</h2></div><p>Visit the space, connect with the team, or send your details for the next intake.</p></div>
+      <div className="detail-grid">
+        <article><span>Address</span><h3>Location</h3><p>{academyAddress}</p></article>
+        <article><span>Phone</span><h3>Call</h3><p><a href="tel:+919019348392">+91 90193 48392</a></p></article>
+        <article><span>Mail</span><h3>Email</h3><p><a href="mailto:clipzoacademy@gmail.com">clipzoacademy@gmail.com</a></p></article>
+      </div>
+      <div className="detail-grid" style={{ marginTop: "12px" }}>
+        <article><span>Instagram</span><h3>Follow</h3><p><a href={academyInstagramUrl} target="_blank" rel="noreferrer">@clipzo_academy</a></p></article>
+        <article><span>Studio</span><h3>Studio email</h3><p><a href="mailto:clipzostudio@gmail.com">clipzostudio@gmail.com</a></p></article>
+        <article><span>Creative world</span><h3>One brand. Three worlds.</h3><p>Clipzo Academy is part of the same creative ecosystem as Clipzo and Clipzo Studio.</p></article>
+      </div>
+    </section>
+    <Enquiry brand="academy" />
+    <BrandContactSection brand="academy" />
+  </>;
+}
+
+function StudioAboutPage() {
+  return <>
+    <section className="page-hero">
+      <img src={brands.studio.image} alt={brands.studio.imageAlt} className="page-hero-image" />
+      <div className="page-hero-shade" />
+      <div className="page-hero-copy">
+        <BrandLogo brand="studio" className="page-brand-logo" />
+        <p className="kicker">About</p>
+        <h1>Creative production made for stories that stay.</h1>
+        <p>Clipzo Studio is a creative studio built around storytelling, visual production, and digital content. From photography, videography, podcast production, and brand storytelling to polished content experiences, we create work that feels cinematic, intentional, and memorable.</p>
+      </div>
+    </section>
+    <section className="detail-section">
+      <div className="section-heading"><div><p className="kicker">About Clipzo Studio</p><h2>Production spaces built for idea, craft, and impact.</h2></div><p>Our studio brings together visual direction, reliable production systems, and a creative process shaped for brands, founders, and content teams that want work with clarity and character.</p></div>
+      <div className="detail-grid">
+        <article><span>01</span><h3>Visual storytelling</h3><p>Creative work shaped around narratives, mood, movement, and a clear point of view that makes your brand feel alive.</p></article>
+        <article><span>02</span><h3>Production flexibility</h3><p>Photography, videography, podcast production, and content production support designed to fit your brief and your timeline.</p></article>
+        <article><span>03</span><h3>Creative momentum</h3><p>From concept to final delivery, we help teams move from idea to polished visual output without friction.</p></article>
+      </div>
+    </section>
+    <section className="detail-section">
+      <div className="section-heading"><div><p className="kicker">Vision & Mission</p><h2>Turn good ideas into production value.</h2></div><p>We build creative systems that help brands and creators communicate with confidence, presence, and lasting recall.</p></div>
+      <div className="detail-grid">
+        <article><span>Vision</span><h3>Stories that last</h3><p>To become a trusted production partner for brands, founders, and creators who want strong, cinematic, story-led content.</p></article>
+        <article><span>Mission</span><h3>Work that performs</h3><p>To produce thoughtful visual content that blends storytelling, production craft, and digital clarity with measurable creative impact.</p></article>
+        <article><span>Approach</span><h3>Creative systems</h3><p>From photography to podcasts and polished visual storytelling, we turn ideas into content that is made to be seen and remembered.</p></article>
+      </div>
+    </section>
+    <section className="detail-section studio-rental-section">
+      <div className="section-heading"><div><p className="kicker">Studio for rent</p><h2>Production-ready space for your next shoot.</h2></div><p>Clipzo Studio is available for rent for founders, creators, brands, and teams who need a professional backdrop, controlled lighting, and a space built for creative momentum.</p></div>
+      <div className="detail-grid">
+        <article><span>01</span><h3>Creative studio rental</h3><p>Flexible booking for product shoots, brand films, interviews, podcast recordings, social content, and small productions that need a polished environment.</p></article>
+        <article><span>02</span><h3>Built for production</h3><p>Professional lighting, usable camera space, clean visual framing, and a setup designed to support efficient shoots and strong output.</p></article>
+        <article><span>03</span><h3>Ready when you are</h3><p>Book the space for your brief, team, and timeline and work in an environment that helps your ideas move from concept to captured story.</p></article>
+      </div>
+    </section>
+    <section className="detail-section studio-gallery-section">
+      <div className="section-heading"><div><p className="kicker">Studio preview</p><h2>Multiple angles. One cinematic setup.</h2></div><p>Take a closer look at the studio environment from different perspectives so you can picture your shoot, frame, and final output before you book.</p></div>
+      <div className="studio-gallery-grid" aria-label="Clipzo Studio gallery preview">
+        <figure className="studio-gallery-card studio-gallery-card-one">
+          <img src={brands.studio.image} alt="Clipzo Studio front-angle production floor" />
+          <figcaption>Front angle</figcaption>
+        </figure>
+        <figure className="studio-gallery-card studio-gallery-card-two">
+          <img src={brands.studio.image} alt="Clipzo Studio side-angle production floor" />
+          <figcaption>Side view</figcaption>
+        </figure>
+        <figure className="studio-gallery-card studio-gallery-card-three">
+          <img src={brands.studio.image} alt="Clipzo Studio wide-angle studio setup" />
+          <figcaption>Wide setup</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section className="detail-section">
+      <div className="section-heading"><div><p className="kicker">Contact</p><h2>Inquire about the studio.</h2></div><p>Send us your project brief and we’ll help shape the right production approach for the story you want to tell.</p></div>
+      <div className="detail-grid">
+        <article><span>Address</span><h3>Location</h3><p>{studioAddress}</p></article>
+        <article><span>Phone</span><h3>Call</h3><p><a href="tel:+919019348392">+91 90193 48392</a></p></article>
+        <article><span>Mail</span><h3>Email</h3><p><a href="mailto:clipzostudio@gmail.com">clipzostudio@gmail.com</a></p></article>
+      </div>
+      <div className="detail-grid" style={{ marginTop: "12px" }}>
+        <article><span>Instagram</span><h3>Follow</h3><p><a href={studioInstagramUrl} target="_blank" rel="noreferrer">@clipzo.in_</a></p></article>
+        <article><span>Academy</span><h3>Academy email</h3><p><a href="mailto:clipzoacademy@gmail.com">clipzoacademy@gmail.com</a></p></article>
+        <article><span>Creative world</span><h3>One brand. Three worlds.</h3><p>Clipzo Studio works alongside Clipzo and Clipzo Academy under one connected creative ecosystem.</p></article>
+      </div>
+    </section>
+    <Enquiry brand="studio" />
+    <BrandContactSection brand="studio" />
   </>;
 }
 
 function DetailPage({ brand, page, youtubeReels = [] }: { brand: BrandKey; page: Exclude<BrandPageKey, "home">; youtubeReels?: YoutubeReel[] }) {
   if (brand === "clipzo" && page === "partner") return <ClipzoPartnerPage />;
   if (brand === "clipzo" && page === "reels") return <ReelPortfolioPage youtubeReels={youtubeReels} />;
+  if (brand === "academy" && page === "about") return <AcademyAboutPage />;
+  if (brand === "studio" && page === "about") return <StudioAboutPage />;
   const data = brands[brand];
   const copy = pageCopy[page];
   const isVideos = page === "videos";
@@ -375,6 +692,6 @@ export function BrandPage({ brand, page = "home", youtubeReels = [] }: { brand: 
   return <ThemeFrame brand={brand}>
     <SiteNav active={brand} />
     <main>{page === "home" ? (brand === "clipzo" ? <ClipzoHome youtubeReels={youtubeReels} /> : <HomePage brand={brand} />) : <DetailPage brand={brand} page={page} youtubeReels={youtubeReels} />}</main>
-    <SiteFooter />
+    <SiteFooter brand={brand} />
   </ThemeFrame>;
 }
