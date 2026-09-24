@@ -171,7 +171,7 @@ export function Enquiry({ brand }: { brand: BrandKey }) {
 }
 
 export function SiteFooter() {
-  return <footer className="site-footer"><span>Clipzo · Academy · Studio</span><span>One brand. Three creative worlds.</span><span className="footer-links"><a href="#terms">Terms</a><a href="#privacy">Privacy</a></span><span>© 2026 Clipzo</span><span>Developed and designed by <a href="https://rachithacharya.in" target="_blank" rel="noreferrer">Rachitha R Achary</a></span></footer>;
+  return <footer className="site-footer"><span>Clipzo · Academy · Studio</span><span>One brand. Three creative worlds.</span><span className="footer-links"><a href="#terms">Terms</a><a href="#privacy">Privacy</a></span><span>© 2026 Clipzo</span><span>Developed and designed by <a href="https://rachithAcharyaa.in" target="_blank" rel="noreferrer">Rachitha R Acharya</a></span></footer>;
 }
 
 export function ThemeFrame({ brand, children }: { brand: BrandKey; children: ReactNode }) {
