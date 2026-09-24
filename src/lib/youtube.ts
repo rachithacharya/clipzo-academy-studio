@@ -24,10 +24,46 @@ export async function fetchYoutubeReels(): Promise<YoutubeReel[]> {
 }
 
 async function fetchYoutubeFeed(): Promise<YoutubeReel[]> {
-  const youtubeApiKey = process.env["YOUTUBE_API_KEY"];
   const youtubeChannelId = process.env["YOUTUBE_CHANNEL_ID"];
-  if (!youtubeApiKey || !youtubeChannelId) return [];
-  return fetchYoutubeApi(youtubeApiKey, youtubeChannelId);
+  if (!youtubeChannelId) return [];
+
+  const rssReels = await fetchYoutubeRss(youtubeChannelId);
+  if (rssReels.length > 0) return rssReels;
+
+  const youtubeApiKey = process.env["YOUTUBE_API_KEY"];
+  return youtubeApiKey ? fetchYoutubeApi(youtubeApiKey, youtubeChannelId) : [];
+}
+
+async function fetchYoutubeRss(channelId: string): Promise<YoutubeReel[]> {
+  const feedUrl = new URL("https://www.youtube.com/feeds/videos.xml");
+  feedUrl.searchParams.set("channel_id", channelId);
+  const response = await fetch(feedUrl, { signal: AbortSignal.timeout(5000) });
+  if (!response.ok) throw new Error(`YouTube RSS feed returned ${response.status}`);
+
+  const xml = await response.text();
+  return [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].flatMap((match) => {
+    const entry = match[1];
+    const id = readXmlTag(entry, "yt:videoId");
+    const title = readXmlTag(entry, "title");
+    if (!id || !title) return [];
+    return [{
+      id,
+      title,
+      description: readXmlTag(entry, "media:description") ?? "",
+      publishedAt: readXmlTag(entry, "published") ?? "",
+      thumbnail: `https://i.ytimg.com/vi/${id}/hq720.jpg`,
+      youtubeUrl: `https://www.youtube.com/watch?v=${id}`,
+    }];
+  }).slice(0, maxVideos);
+}
+
+function readXmlTag(xml: string, tag: string): string | undefined {
+  const match = xml.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
+  return match?.[1] ? decodeXmlEntities(match[1].trim()) : undefined;
+}
+
+function decodeXmlEntities(value: string): string {
+  return value.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&apos;/g, "'");
 }
 
 async function fetchYoutubeApi(apiKey: string, channelId: string): Promise<YoutubeReel[]> {
