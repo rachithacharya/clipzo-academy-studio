@@ -390,7 +390,7 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
       </div>
     </div>}
     {!isLoading && sourceCards.length === 0 && <div className="reel-empty-state"><p>New cinematic stories are coming soon.</p><a href={youtubeChannelUrl} target="_blank" rel="noreferrer">Watch Clipzo on YouTube <ArrowUpRight /></a></div>}
-       {!isLoading && sourceCards.length > 0 && <div className="reel-mobile-controls" aria-label="Scroll reels">
+      {!isLoading && sourceCards.length > 0 && <div className="reel-controls" aria-label="Scroll reels">
          <button type="button" onClick={() => scrollReels(-1)} aria-label="Scroll reels left"><ArrowLeft /></button>
          <button type="button" onClick={() => scrollReels(1)} aria-label="Scroll reels right"><ArrowRight /></button>
        </div>}
