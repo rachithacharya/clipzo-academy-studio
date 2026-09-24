@@ -2,6 +2,7 @@ import type { YoutubeReel } from "@/components/brand-page";
 
 const feedCacheTtl = 30 * 60_000;
 const maxVideos = 30;
+const defaultYoutubeChannelId = "UCOfGYJgXItJTgmQQiQJYI7Q";
 let cachedFeed: { expiresAt: number; reels: YoutubeReel[] } | undefined;
 let pendingFeed: Promise<YoutubeReel[]> | undefined;
 
@@ -24,8 +25,7 @@ export async function fetchYoutubeReels(): Promise<YoutubeReel[]> {
 }
 
 async function fetchYoutubeFeed(): Promise<YoutubeReel[]> {
-  const youtubeChannelId = process.env["YOUTUBE_CHANNEL_ID"];
-  if (!youtubeChannelId) return [];
+  const youtubeChannelId = process.env["YOUTUBE_CHANNEL_ID"] ?? defaultYoutubeChannelId;
 
   const rssReels = await fetchYoutubeRss(youtubeChannelId);
   if (rssReels.length > 0) return rssReels;
