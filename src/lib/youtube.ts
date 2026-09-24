@@ -1,15 +1,9 @@
 import type { YoutubeReel } from "@/components/brand-page";
 
-const youtubeFeedUrl = "https://www.youtube.com/feeds/videos.xml?channel_id=UCOfGYJgXItJTgmQQiQJYI7Q";
 const youtubeChannelId = "UCOfGYJgXItJTgmQQiQJYI7Q";
-const youtubeApiKey = process.env["YOUTUBE_API_KEY"];
 const feedCacheTtl = 60_000;
 let cachedFeed: { expiresAt: number; reels: YoutubeReel[] } | undefined;
 let pendingFeed: Promise<YoutubeReel[]> | undefined;
-
-function decodeXml(value: string) {
-  return value.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
-}
 
 export async function fetchYoutubeReels(): Promise<YoutubeReel[]> {
   if (cachedFeed && cachedFeed.expiresAt > Date.now()) return cachedFeed.reels;
@@ -24,35 +18,8 @@ export async function fetchYoutubeReels(): Promise<YoutubeReel[]> {
 }
 
 async function fetchYoutubeFeed(): Promise<YoutubeReel[]> {
-  const [apiReels, feedReels] = await Promise.all([
-    youtubeApiKey ? fetchYoutubeApi(youtubeApiKey) : Promise.resolve([]),
-    fetchYoutubeAtomFeed(),
-  ]);
-  return apiReels.length > 0 ? apiReels : feedReels;
-}
-
-async function fetchYoutubeAtomFeed(): Promise<YoutubeReel[]> {
-  try {
-    const response = await fetch(youtubeFeedUrl, { headers: { Accept: "application/atom+xml" }, signal: AbortSignal.timeout(5000) });
-    if (!response.ok) return [];
-    const xml = await response.text();
-    const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)];
-
-    return entries.flatMap((entry) => {
-      const block = entry[1] ?? "";
-      const id = block.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
-      const title = block.match(/<title>([\s\S]*?)<\/title>/)?.[1];
-      if (!id || !title) return [];
-      return [{
-        id,
-        title: decodeXml(title.trim()),
-        thumbnail: `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
-        url: `https://www.youtube.com/shorts/${id}`,
-      }];
-    });
-  } catch {
-    return [];
-  }
+  const youtubeApiKey = process.env["YOUTUBE_API_KEY"];
+  return youtubeApiKey ? fetchYoutubeApi(youtubeApiKey) : [];
 }
 
 async function fetchYoutubeApi(apiKey: string): Promise<YoutubeReel[]> {

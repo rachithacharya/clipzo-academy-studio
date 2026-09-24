@@ -125,7 +125,7 @@ function ProductionBrief() {
 const workflow = ["Book", "Shoot", "Edit", "Review", "Deliver"];
 
 function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean; youtubeReels?: YoutubeReel[] }) {
-  const sourceCards = youtubeReels.length > 0 ? youtubeReels : [{ id: "clipzo-feed-fallback", title: "Watch Clipzo on YouTube", thumbnail: brands.clipzo.image, url: youtubeChannelUrl }];
+  const sourceCards = youtubeReels;
   const videoCards = [...sourceCards, ...sourceCards];
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
@@ -174,7 +174,7 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
     </div>
     <div className="reel-track" ref={trackRef} aria-label="Clipzo reel showcase">
       <div className="reel-track-motion">
-        {videoCards.map((video, index) => <button className="reel-tile" type="button" onClick={() => video.id === "clipzo-feed-fallback" ? window.open(youtubeChannelUrl, "_blank", "noopener,noreferrer") : setSelectedIndex(index)} key={`${video.id}-${index}`}>
+        {videoCards.map((video, index) => <button className="reel-tile" type="button" onClick={() => setSelectedIndex(index)} key={`${video.id}-${index}`}>
           <img src={video.thumbnail} alt="" loading={index < 8 ? "eager" : "lazy"} decoding="async" onError={(event) => {
             const image = event.currentTarget;
             if (image.dataset["thumbnailFallback"] === "frame") return;
@@ -194,6 +194,7 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
         </button>)}
       </div>
     </div>
+    {sourceCards.length === 0 && <div className="reel-empty-state"><p>Latest Clipzo reels are unavailable right now.</p><a href={youtubeChannelUrl} target="_blank" rel="noreferrer">Watch the original videos on YouTube <ArrowUpRight /></a></div>}
        <div className="reel-mobile-controls" aria-label="Scroll reels">
          <button type="button" onClick={() => scrollReels(-1)} aria-label="Scroll reels left"><ArrowLeft /></button>
          <button type="button" onClick={() => scrollReels(1)} aria-label="Scroll reels right"><ArrowRight /></button>
