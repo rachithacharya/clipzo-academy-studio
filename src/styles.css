@@ -478,13 +478,11 @@
   .reel-loading-state span:nth-child(3) { display: none; }
   .reel-showcase-heading { grid-template-columns: 1fr; gap: 18px; padding-inline: 22px; }
   .reel-showcase-heading h2 { font-size: clamp(2.8rem, 13vw, 4.5rem); }
-  .reel-track { margin-top: 38px; padding-bottom: 8px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; }
+  .reel-track { margin-top: 38px; padding-bottom: 8px; overflow-x: auto; scrollbar-width: none; }
   .reel-track::-webkit-scrollbar { display: none; }
-  .reel-track-motion { --reel-gap: 12px; gap: var(--reel-gap); padding-inline: 22px; animation-duration: 14s; }
-  .reel-track-motion { width: max-content; animation: reelMarquee 28s linear infinite; }
-  .reel-tile { scroll-snap-align: start; }
+  .reel-track-motion { --reel-gap: 12px; gap: var(--reel-gap); padding-inline: 22px; width: max-content; animation: reelMarquee 20s linear infinite; }
   .reel-mobile-controls { display: flex; justify-content: flex-end; gap: 8px; margin: 18px 22px 0; }
-  .reel-tile { flex-basis: min(68vw, 260px); border-radius: 16px; }
+  .reel-tile { flex-basis: min(62vw, 230px); border-radius: 16px; opacity: 1; transform: none; }
   .reel-tile:nth-child(5n + 3) { transform: translateY(0) rotate(0) scale(1); }
   .reel-showcase-action { margin-top: 38px; }
   .reel-modal { padding: 74px 16px 20px; }
