@@ -361,7 +361,7 @@ function ReelStrip({ fullPage = false, youtubeReels = [] }: { fullPage?: boolean
     };
   }, [selectedIndex, videoCards.length]);
 
-  return <section className={`reel-showcase ${fullPage ? "reel-showcase-page" : ""}`}>
+  return <section id={fullPage ? undefined : "discover"} className={`reel-showcase ${fullPage ? "reel-showcase-page" : ""}`}>
     <div className="reel-showcase-heading">
       <div><p className="kicker">Portfolio</p><h2>{fullPage ? "Watch the work." : "Reels that keep moving."}</h2></div>
       <p>{fullPage ? "A moving archive of Clipzo production, learning, and studio stories." : "A glimpse of what we shoot, edit, and deliver for creators, brands, and celebrations."}</p>
